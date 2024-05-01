@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart'
-    show AppBarTheme, Brightness, ColorScheme, ThemeData;
+    show AppBarTheme, Brightness, ColorScheme, TextTheme, ThemeData;
 import 'package:portfolio/ui/ui.dart'
     show
         AppColors,
@@ -14,8 +14,7 @@ class AppTheme {
   final AppColors appColors;
 
   ThemeData get light {
-    final textTheme =
-        AppTextTheme(appColors: appColors, brightness: Brightness.light);
+    final textTheme = getTexTehem(Brightness.light);
     return ThemeData(
       textTheme: textTheme,
       useMaterial3: true,
@@ -37,8 +36,7 @@ class AppTheme {
   }
 
   ThemeData get dark {
-    final textTheme =
-        AppTextTheme(appColors: appColors, brightness: Brightness.dark);
+    final textTheme = getTexTehem(Brightness.dark);
     return ThemeData.dark(useMaterial3: true).copyWith(
       textTheme: textTheme,
       appBarTheme: AppBarTheme(backgroundColor: appColors.onBackground),
@@ -55,5 +53,9 @@ class AppTheme {
         inversePrimary: appColors.onBackground,
       ),
     );
+  }
+
+  TextTheme getTexTehem(Brightness brightness) {
+    return AppTextTheme(appColors: appColors, brightness: brightness);
   }
 }
