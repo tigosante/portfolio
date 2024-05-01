@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart' show FontWeight, TextStyle, TextTheme;
+import 'package:flutter/material.dart'
+    show FontStyle, FontWeight, TextStyle, TextTheme, ThemeExtension;
 
 class AppTextTheme extends TextTheme {
   String get _primaryFontFamily => 'SFUIText';
@@ -93,4 +94,41 @@ class AppTextTheme extends TextTheme {
         fontWeight: FontWeight.normal,
         fontFamily: _primaryFontFamily,
       );
+}
+
+class AppTextThemeExtension extends ThemeExtension<AppTextThemeExtension> {
+  AppTextThemeExtension({
+    required TextTheme textTheme,
+  }) : _textTheme = textTheme;
+
+  final TextTheme _textTheme;
+
+  TextStyle get displayLarge => _textTheme.displayLarge!;
+  TextStyle get displayMedium => _textTheme.displayMedium!;
+  TextStyle get displaySmall => _textTheme.displaySmall!;
+
+  TextStyle get headlineMedium => _textTheme.headlineMedium!;
+  TextStyle get headlineSmall => _textTheme.headlineSmall!;
+
+  TextStyle get titleLarge => _textTheme.titleLarge!;
+  TextStyle get titleMedium => _textTheme.titleMedium!;
+  TextStyle get titleSmall => _textTheme.titleSmall!;
+
+  TextStyle get bodyLarge => _textTheme.bodyLarge!;
+  TextStyle get bodyMedium => _textTheme.bodyMedium!;
+  TextStyle get bodySmall => _textTheme.bodySmall!;
+
+  TextStyle get labelLarge => _textTheme.labelLarge!;
+  TextStyle get labelSmall => _textTheme.labelSmall!;
+
+  @override
+  ThemeExtension<AppTextThemeExtension> copyWith() {
+    return this;
+  }
+
+  @override
+  ThemeExtension<AppTextThemeExtension> lerp(
+      covariant ThemeExtension<AppTextThemeExtension>? other, double t) {
+    return this;
+  }
 }

@@ -1,6 +1,9 @@
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
-import 'package:portfolio/theme/app_theme.dart';
+import 'package:portfolio/extensions/extensions.dart'
+    show BuildContextExtension;
+import 'package:portfolio/ui/ui.dart'
+    show AppTextTypeEnum, AppTheme, TextWidget;
 
 void main() {
   runApp(const MyApp());
@@ -44,18 +47,22 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: TextWidget(
+          widget.title,
+          style: context.appTextTheme.headlineSmall
+              .copyWith(fontWeight: FontWeight.w500),
+        ),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
+            const TextWidget(
               'You have pushed the button this many times:',
             ),
-            Text(
+            TextWidget(
               '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              textType: AppTextTypeEnum.headlineMedium,
             ),
           ],
         ),
