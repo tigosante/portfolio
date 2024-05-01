@@ -5,38 +5,6 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "mobile-dev",
-      "request": "launch",
-      "type": "dart",
-    },
-    {
-      "name": "macOS-dev",
-      "request": "launch",
-      "type": "dart",
-      "args": [
-        "-d",
-        "macos"
-      ]
-    },
-    {
-      "name": "linux-dev",
-      "request": "launch",
-      "type": "dart",
-      "args": [
-        "-d",
-        "linux"
-      ]
-    },
-    {
-      "name": "windows-dev",
-      "request": "launch",
-      "type": "dart",
-      "args": [
-        "-d",
-        "windows"
-      ]
-    },
-    {
       "name": "web-dev",
       "request": "launch",
       "type": "dart",
@@ -45,6 +13,8 @@
         "chrome",
         "--web-port",
         "8080",
+        "--web-renderer",
+        "canvaskit",
       ]
     },
   ]

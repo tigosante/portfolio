@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/extensions/extensions.dart'
     show BuildContextExtension;
 import 'package:portfolio/ui/ui.dart'
-    show AppTextTypeEnum, AppTheme, TextWidget;
+    show AppColors, AppTextTypeEnum, AppTheme, TextWidget;
 
 void main() {
   runApp(const MyApp());
@@ -14,10 +14,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = AppTheme(appColors: AppColors());
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: AppTheme.light,
-      darkTheme: AppTheme.dark,
+      theme: theme.light,
+      darkTheme: theme.dark,
       debugShowCheckedModeBanner: kDebugMode,
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -67,10 +68,11 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        icon: const Icon(Icons.add),
+        label: const TextWidget("Increment"),
       ),
     );
   }

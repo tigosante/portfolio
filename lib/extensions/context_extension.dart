@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/ui/ui.dart'
-    show AppColorsExtension, AppTextThemeExtension;
+    show AppColorsExtension, AppDimensionsExtension, AppTextThemeExtension;
 
 extension BuildContextExtension on BuildContext {
+  T _getExtension<T>() {
+    return Theme.of(this).extension<T>()!;
+  }
+
   AppColorsExtension get appColors {
-    return Theme.of(this).extension<AppColorsExtension>()!;
+    return _getExtension<AppColorsExtension>();
+  }
+
+  AppDimensionsExtension get appDimensions {
+    return _getExtension<AppDimensionsExtension>();
   }
 
   AppTextThemeExtension get appTextTheme {
-    return Theme.of(this).extension<AppTextThemeExtension>()!;
+    return _getExtension<AppTextThemeExtension>();
   }
 }
