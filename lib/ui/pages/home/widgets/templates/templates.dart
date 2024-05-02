@@ -1,2 +1,2 @@
-export 'apresentation_widget_template.dart';
-export 'projects_widget_template.dart';
+export 'apresentation_widget.dart';
+export 'projects_widget.dart';

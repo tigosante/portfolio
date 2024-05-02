@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart'
-    show
-        AppBarTheme,
-        BorderRadius,
-        Radius,
-        RoundedRectangleBorder,
-        kToolbarHeight;
+import 'package:flutter/material.dart' show AppBarTheme;
 import 'package:portfolio/ui/ui.dart' show AppColors, AppDimensions;
 
 class AppBarThemeApp extends AppBarTheme {
@@ -14,12 +8,10 @@ class AppBarThemeApp extends AppBarTheme {
   }) : super(
           elevation: 0,
           centerTitle: true,
-          toolbarHeight: kToolbarHeight * 2,
-          backgroundColor: appColors.primary,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(appDimensions.borderRadiusMedium),
-            ),
-          ),
+          scrolledUnderElevation: 0,
+          shadowColor: appColors.transparent,
+          foregroundColor: appColors.transparent,
+          backgroundColor: appColors.transparent,
+          surfaceTintColor: appColors.transparent,
         );
 }
