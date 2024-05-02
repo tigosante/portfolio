@@ -1,25 +1,34 @@
 import 'package:flutter/material.dart'
-    show AppBarTheme, Brightness, ColorScheme, TextTheme, ThemeData;
+    show Brightness, ColorScheme, TextTheme, ThemeData;
+import 'package:portfolio/ui/theme/app_bar_theme_app.dart';
 import 'package:portfolio/ui/ui.dart'
     show
         AppColors,
         AppColorsExtension,
+        AppDimensions,
         AppDimensionsExtension,
         AppTextTheme,
-        AppTextThemeExtension;
+        AppTextThemeExtension,
+        AppType;
 
 class AppTheme {
-  AppTheme({required this.appColors});
+  AppTheme({required this.appType, required this.appColors});
 
+  final AppType appType;
   final AppColors appColors;
 
   ThemeData get light {
-    final textTheme = getTexTehem(Brightness.light);
+    final textTheme = getTexTheme(Brightness.light);
+    final appDimensions = AppDimensions(appType: appType);
     return ThemeData(
-      textTheme: textTheme,
       useMaterial3: true,
+      textTheme: textTheme,
+      appBarTheme: AppBarThemeApp(
+        appColors: appColors,
+        appDimensions: appDimensions,
+      ),
       extensions: [
-        AppDimensionsExtension(),
+        AppDimensionsExtension(appDimensions: appDimensions),
         AppColorsExtension(appColors: appColors),
         AppTextThemeExtension(textTheme: textTheme),
       ],
@@ -36,12 +45,16 @@ class AppTheme {
   }
 
   ThemeData get dark {
-    final textTheme = getTexTehem(Brightness.dark);
+    final textTheme = getTexTheme(Brightness.dark);
+    final appDimensions = AppDimensions(appType: appType);
     return ThemeData.dark(useMaterial3: true).copyWith(
       textTheme: textTheme,
-      appBarTheme: AppBarTheme(backgroundColor: appColors.onBackground),
+      appBarTheme: AppBarThemeApp(
+        appColors: appColors,
+        appDimensions: appDimensions,
+      ),
       extensions: [
-        AppDimensionsExtension(),
+        AppDimensionsExtension(appDimensions: appDimensions),
         AppColorsExtension(appColors: appColors),
         AppTextThemeExtension(textTheme: textTheme),
       ],
@@ -55,7 +68,7 @@ class AppTheme {
     );
   }
 
-  TextTheme getTexTehem(Brightness brightness) {
+  TextTheme getTexTheme(Brightness brightness) {
     return AppTextTheme(appColors: appColors, brightness: brightness);
   }
 }
