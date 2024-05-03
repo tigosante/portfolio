@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
 import 'package:portfolio/extensions/extensions.dart'
     show BuildContextExtension;
@@ -13,12 +12,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = AppTheme(appColors: AppColors(), appType: context.appType);
+    final theme = AppTheme(
+      appType: context.appType,
+      appColorsDark: AppColors.dark(),
+      appColorsLight: AppColors.light(),
+    );
     return MaterialApp(
       title: 'Flutter Demo',
       theme: theme.light,
       darkTheme: theme.dark,
-      debugShowCheckedModeBanner: kDebugMode,
+      debugShowCheckedModeBanner: false,
       home: const HomePage(),
     );
   }

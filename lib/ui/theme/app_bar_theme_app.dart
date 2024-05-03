@@ -11,7 +11,7 @@ class AppBarThemeApp extends AppBarTheme {
           scrolledUnderElevation: 0,
           shadowColor: appColors.transparent,
           foregroundColor: appColors.transparent,
-          backgroundColor: appColors.transparent,
           surfaceTintColor: appColors.transparent,
+          backgroundColor: appColors.primary.withOpacity(0.1),
         );
 }

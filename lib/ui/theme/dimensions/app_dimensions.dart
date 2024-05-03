@@ -1,18 +1,15 @@
 enum AppType {
-  mobile,
-  desktop;
+  none(factor: 1),
+  mobile(factor: 1),
+  desktop(factor: 2);
+
+  final double factor;
 
   double applyFactor(double value) {
-    if (value == 0) {
-      return value;
-    }
-
-    return value *
-        switch (this) {
-          AppType.mobile => 1,
-          AppType.desktop => 2.0,
-        };
+    return value == 0 ? value : value * factor;
   }
+
+  const AppType({required this.factor});
 }
 
 class AppDimensions {
@@ -24,6 +21,8 @@ class AppDimensions {
     this.largeValue = 24.0,
     this.extraLargeValue = 32.0,
   });
+
+  static AppDimensions? _appDimensions;
 
   final AppType appType;
 
@@ -43,4 +42,13 @@ class AppDimensions {
   double get paddingMedium => appType.applyFactor(mediumValue);
   double get paddingLarge => appType.applyFactor(largeValue);
   double get paddingExtraLarge => appType.applyFactor(extraLargeValue);
+
+  AppDimensions get noFactor => _appDimensions ??= AppDimensions(
+        appType: AppType.none,
+        noneValue: noneValue,
+        smallValue: smallValue,
+        mediumValue: mediumValue,
+        largeValue: largeValue,
+        extraLargeValue: extraLargeValue,
+      );
 }

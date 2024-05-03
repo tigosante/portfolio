@@ -9,16 +9,19 @@ class ProjectsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SectionWidget(
-      child: Column(
-        children: [
-          Text(
-            'Projects',
-            style: context.appTextTheme.headlineMedium
-                .copyWith(color: context.appColors.primary),
-          ),
-          const AnimatedIconsWidget(),
-        ],
+    return Container(
+      color: context.appColors.backgroundInverse,
+      child: SectionWidget(
+        child: Column(
+          children: [
+            Text(
+              'Projects',
+              style: context.appTextTheme.headlineMedium
+                  .copyWith(color: context.appColors.primaryInverse),
+            ),
+            const AnimatedIconsWidget(),
+          ],
+        ),
       ),
     );
   }

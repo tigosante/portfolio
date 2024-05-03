@@ -10,34 +10,58 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension>
   final AppColors appColors;
 
   @override
-  MaterialColor get primary => appColors.primary;
+  MaterialColor get red => appColors.red;
 
   @override
-  MaterialColor get secondary => appColors.secondary;
+  MaterialColor get white => appColors.white;
 
   @override
-  MaterialColor get background => appColors.background;
+  MaterialColor get black => appColors.black;
 
   @override
-  MaterialColor get surface => appColors.surface;
-
-  @override
-  MaterialColor get error => appColors.error;
+  MaterialColor get lighterGray => appColors.lighterGray;
 
   @override
   MaterialColor get transparent => appColors.transparent;
 
   @override
+  MaterialColor get error => red;
+
+  @override
+  MaterialColor get primary => appColors.primary;
+
+  @override
   MaterialColor get onPrimary => appColors.onPrimary;
+
+  @override
+  MaterialColor get primaryInverse => appColors.primaryInverse;
+
+  @override
+  MaterialColor get secondary => appColors.secondary;
 
   @override
   MaterialColor get onSecondary => appColors.onSecondary;
 
   @override
-  MaterialColor get onBackground => appColors.onBackground;
+  MaterialColor get secondaryInverse => appColors.secondaryInverse;
+
+  @override
+  MaterialColor get surface => appColors.surface;
 
   @override
   MaterialColor get onSurface => appColors.onSurface;
+
+  @override
+  MaterialColor get surfaceInverse => appColors.surfaceInverse;
+
+  @override
+  MaterialColor get background => appColors.background;
+
+  @override
+  MaterialColor get onBackground => appColors.onBackground;
+
+  @override
+  MaterialColor get backgroundInverse => appColors.backgroundInverse;
 
   @override
   ThemeExtension<AppColorsExtension> copyWith() {

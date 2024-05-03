@@ -55,6 +55,9 @@ class AppDimensionsExtension extends ThemeExtension<AppDimensionsExtension>
   double get paddingExtraLarge => _appDimensions.paddingExtraLarge;
 
   @override
+  AppDimensions get noFactor => _appDimensions.noFactor;
+
+  @override
   ThemeExtension<AppDimensionsExtension> copyWith() {
     return this;
   }

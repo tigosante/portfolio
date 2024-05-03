@@ -12,63 +12,72 @@ import 'package:portfolio/ui/ui.dart'
         AppType;
 
 class AppTheme {
-  AppTheme({required this.appType, required this.appColors});
+  AppTheme({
+    required this.appType,
+    required this.appColorsLight,
+    required this.appColorsDark,
+  });
 
   final AppType appType;
-  final AppColors appColors;
+  final AppColors appColorsLight;
+  final AppColors appColorsDark;
 
   ThemeData get light {
-    final textTheme = getTexTheme(Brightness.light);
+    const brightness = Brightness.light;
+    final textTheme = getTexTheme(brightness);
     final appDimensions = AppDimensions(appType: appType);
     return ThemeData(
       useMaterial3: true,
       textTheme: textTheme,
       appBarTheme: AppBarThemeApp(
-        appColors: appColors,
+        appColors: appColorsLight,
         appDimensions: appDimensions,
       ),
       extensions: [
-        AppDimensionsExtension(appDimensions: appDimensions),
-        AppColorsExtension(appColors: appColors),
         AppTextThemeExtension(textTheme: textTheme),
+        AppColorsExtension(appColors: appColorsLight),
+        AppDimensionsExtension(appDimensions: appDimensions),
       ],
       colorScheme: ColorScheme.light(
-        error: appColors.error,
-        surface: appColors.surface,
-        primary: appColors.primary,
-        secondary: appColors.secondary,
-        background: appColors.background,
-        onSecondary: appColors.onSecondary,
-        onBackground: appColors.onBackground,
+        error: appColorsLight.error,
+        surface: appColorsLight.surface,
+        primary: appColorsLight.primary,
+        secondary: appColorsLight.secondary,
+        background: appColorsLight.background,
+        onSecondary: appColorsLight.onSecondary,
+        onBackground: appColorsLight.onBackground,
       ),
     );
   }
 
   ThemeData get dark {
-    final textTheme = getTexTheme(Brightness.dark);
+    const brightness = Brightness.dark;
+    final textTheme = getTexTheme(brightness);
     final appDimensions = AppDimensions(appType: appType);
     return ThemeData.dark(useMaterial3: true).copyWith(
       textTheme: textTheme,
       appBarTheme: AppBarThemeApp(
-        appColors: appColors,
+        appColors: appColorsDark,
         appDimensions: appDimensions,
       ),
       extensions: [
-        AppDimensionsExtension(appDimensions: appDimensions),
-        AppColorsExtension(appColors: appColors),
         AppTextThemeExtension(textTheme: textTheme),
+        AppColorsExtension(appColors: appColorsDark),
+        AppDimensionsExtension(appDimensions: appDimensions),
       ],
       colorScheme: ColorScheme.dark(
-        error: appColors.error,
-        surface: appColors.surface,
-        primary: appColors.primary,
-        secondary: appColors.secondary,
-        inversePrimary: appColors.onBackground,
+        error: appColorsDark.error,
+        surface: appColorsDark.surface,
+        primary: appColorsDark.primary,
+        secondary: appColorsDark.secondary,
+        inversePrimary: appColorsDark.onBackground,
       ),
     );
   }
 
   TextTheme getTexTheme(Brightness brightness) {
+    final appColors =
+        brightness == Brightness.light ? appColorsLight : appColorsDark;
     return AppTextTheme(appColors: appColors, brightness: brightness);
   }
 }

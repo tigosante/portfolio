@@ -11,27 +11,37 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final List<Widget> _widgets = [
+    const ApresentationWidget(),
+    const ProjectsWidget(),
+  ];
+
   @override
   Widget build(BuildContext context) {
+    final headerTextStyle = context.appTextTheme.headlineMedium
+        .copyWith(color: context.appColors.surface);
+
     return Scaffold(
-      body: Stack(
-        children: [
-          ListView(
-            scrollDirection: Axis.vertical,
-            physics: const ClampingScrollPhysics(),
-            children: const [
-              ApresentationWidget(),
-              ProjectsWidget(),
-            ],
+      extendBodyBehindAppBar: true,
+      backgroundColor: context.appColors.backgroundInverse,
+      appBar: AppBarWidget(
+        child: Wrap(
+          alignment: WrapAlignment.center,
+          spacing: context.appDimensions.noFactor.paddingSmall,
+          children: List.generate(
+            3,
+            (index) =>
+                TextWidget('Option ${index + 1}', style: headerTextStyle),
           ),
-          AppBar(
-            title: TextWidget(
-              'Header',
-              style: context.appTextTheme.headlineMedium
-                  .copyWith(color: context.appColors.secondary),
-            ),
-          ),
-        ],
+        ),
+      ),
+      body: ListView.separated(
+        itemCount: _widgets.length,
+        scrollDirection: Axis.vertical,
+        physics: const ClampingScrollPhysics(),
+        itemBuilder: (context, index) => _widgets[index],
+        separatorBuilder: (context, index) =>
+            SizedBox(height: context.appDimensions.paddingMedium),
       ),
     );
   }
