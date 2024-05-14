@@ -13,8 +13,8 @@ enum IconType {
 
 class IconsWidget extends StatelessWidget {
   const IconsWidget({
-    super.key,
     required IconType iconType,
+    super.key,
     Color? color,
   })  : _color = color,
         _iconType = iconType;
@@ -22,8 +22,7 @@ class IconsWidget extends StatelessWidget {
   final Color? _color;
   final IconType _iconType;
 
-  factory IconsWidget.arrowRight({Color? color}) =>
-      IconsWidget(iconType: IconType.arrowRight, color: color);
+  factory IconsWidget.arrowRight({Color? color}) => IconsWidget(iconType: IconType.arrowRight, color: color);
 
   @override
   Widget build(BuildContext context) {

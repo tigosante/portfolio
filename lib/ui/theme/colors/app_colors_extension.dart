@@ -55,15 +55,6 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension>
   MaterialColor get surfaceInverse => appColors.surfaceInverse;
 
   @override
-  MaterialColor get background => appColors.background;
-
-  @override
-  MaterialColor get onBackground => appColors.onBackground;
-
-  @override
-  MaterialColor get backgroundInverse => appColors.backgroundInverse;
-
-  @override
   ThemeExtension<AppColorsExtension> copyWith() {
     return this;
   }

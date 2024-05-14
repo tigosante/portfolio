@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/extensions/extensions.dart'
-    show BuildContextExtension;
+import 'package:portfolio/extensions/extensions.dart' show BuildContextExtension;
 import 'package:portfolio/ui/pages/home/widgets/widgets.dart';
 import 'package:portfolio/ui/widgets/widgets.dart' show AnimatedIconsWidget;
 
@@ -9,15 +8,14 @@ class ProjectsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: context.appColors.backgroundInverse,
+    return ColoredBox(
+      color: context.appColors.surfaceInverse,
       child: SectionWidget(
         child: Column(
           children: [
             Text(
               'Projects',
-              style: context.appTextTheme.headlineMedium
-                  .copyWith(color: context.appColors.primaryInverse),
+              style: context.appTextTheme.headlineMedium.copyWith(color: context.appColors.primaryInverse),
             ),
             const AnimatedIconsWidget(),
           ],

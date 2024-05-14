@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart'
-    show TextStyle, TextTheme, ThemeExtension;
+import 'package:flutter/material.dart' show TextStyle, TextTheme, ThemeExtension;
 
 class AppTextThemeExtension extends ThemeExtension<AppTextThemeExtension> {
   AppTextThemeExtension({
@@ -32,8 +31,7 @@ class AppTextThemeExtension extends ThemeExtension<AppTextThemeExtension> {
   }
 
   @override
-  ThemeExtension<AppTextThemeExtension> lerp(
-      covariant ThemeExtension<AppTextThemeExtension>? other, double t) {
+  ThemeExtension<AppTextThemeExtension> lerp(covariant ThemeExtension<AppTextThemeExtension>? other, double t) {
     return this;
   }
 }

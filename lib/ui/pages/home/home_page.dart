@@ -18,30 +18,23 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final headerTextStyle = context.appTextTheme.headlineMedium
-        .copyWith(color: context.appColors.surface);
+    final headerTextStyle = context.appTextTheme.headlineMedium.copyWith(color: context.appColors.surface);
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: context.appColors.backgroundInverse,
+      backgroundColor: context.appColors.surfaceInverse,
       appBar: AppBarWidget(
         child: Wrap(
           alignment: WrapAlignment.center,
           spacing: context.appDimensions.noFactor.paddingSmall,
-          children: List.generate(
-            3,
-            (index) =>
-                TextWidget('Option ${index + 1}', style: headerTextStyle),
-          ),
+          children: List.generate(3, (index) => TextWidget('Option ${index + 1}', style: headerTextStyle)),
         ),
       ),
       body: ListView.separated(
         itemCount: _widgets.length,
-        scrollDirection: Axis.vertical,
         physics: const ClampingScrollPhysics(),
         itemBuilder: (context, index) => _widgets[index],
-        separatorBuilder: (context, index) =>
-            SizedBox(height: context.appDimensions.paddingMedium),
+        separatorBuilder: (context, index) => SizedBox(height: context.appDimensions.paddingMedium),
       ),
     );
   }

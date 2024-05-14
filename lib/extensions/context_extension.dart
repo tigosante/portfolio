@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/ui/ui.dart'
-    show
-        AppColorsExtension,
-        AppDimensionsExtension,
-        AppTextThemeExtension,
-        AppType;
+import 'package:portfolio/ui/ui.dart' show AppColorsExtension, AppDimensionsExtension, AppTextThemeExtension, AppType;
 
 extension BuildContextExtension on BuildContext {
   AppType get appType {

@@ -5,8 +5,8 @@ import 'package:portfolio/extensions/context_extension.dart';
 
 class AppBarWidget extends PreferredSize {
   const AppBarWidget({
-    super.key,
     required Widget child,
+    super.key,
   })  : _child = child,
         super(
           child: const SizedBox(),
@@ -17,8 +17,8 @@ class AppBarWidget extends PreferredSize {
 
   @override
   Widget build(BuildContext context) {
-    final color = context.appColors.backgroundInverse;
-    return Container(
+    final color = context.appColors.surfaceInverse;
+    return ColoredBox(
       color: color.withOpacity(0.1),
       child: ClipRRect(
         child: BackdropFilter(
