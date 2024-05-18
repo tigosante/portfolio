@@ -1,8 +1,7 @@
 import 'package:either_dart/either.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:portfolio/common/exceptions/api_error_exception.dart';
-import 'package:portfolio/common/exceptions/exceptions.dart' show BaseException;
+import 'package:portfolio/common/common.dart' show ApiErrorException, BaseException;
 import 'package:portfolio/data/models/models.dart' show SkillModel;
 import 'package:portfolio/domain/repositories/skill_repository.dart';
 
@@ -17,31 +16,24 @@ void main() {
     });
 
     group('getSkills 🧪', () {
-      final emptyList = <SkillModel>[];
+      final list = <SkillModel>[];
       test('should return a list of SkillModel', () async {
-        when(() => repository.getSkills()).thenAnswer((_) async => Right(emptyList));
+        when(() => repository.getSkills()).thenAnswer((_) async => Right(list));
         final skills = await repository.getSkills();
         expect(skills, isA<Either<BaseException, List<SkillModel>>>());
         final right = skills.right;
         expect(right, isA<List<SkillModel>>());
         expect(right.isEmpty, equals(true));
       });
-      test('should return a empty list of SkillModel', () async {
-        when(() => repository.getSkills()).thenAnswer((_) async => Right(emptyList));
-        final skills = await repository.getSkills();
-        expect(skills, isA<Either<BaseException, List<SkillModel>>>());
-        expect(skills.right, isA<List<SkillModel>>());
-        expect(skills.right.isEmpty, equals(true));
-      });
       test('should return Dart Skill', () async {
-        const skill = SkillModel(name: 'Dart', color: '#000000', imageUrl: '', startWork: '2019');
-        when(() => repository.getSkills()).thenAnswer((_) async => const Right([skill]));
+        list.add(const SkillModel(name: 'Dart', color: '#000000', imageUrl: '', startWork: '2019'));
+        when(() => repository.getSkills()).thenAnswer((_) async => Right(list));
         final skills = await repository.getSkills();
         expect(skills, isA<Either<BaseException, List<SkillModel>>>());
         final right = skills.right;
-        expect(right.isEmpty, false);
+        expect(right.isEmpty, equals(false));
         expect(right.first, isA<SkillModel>());
-        expect(right.first == skill, equals(true));
+        expect(right.first == list.first, equals(true));
       });
     });
     group('getSkills 🧪', () {

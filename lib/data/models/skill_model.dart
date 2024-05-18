@@ -1,22 +1,19 @@
 import 'package:flutter/foundation.dart' show immutable;
+import 'package:portfolio/domain/domain.dart' show SkillEntity;
 
 @immutable
-class SkillModel {
+class SkillModel extends SkillEntity {
   const SkillModel({
-    required this.name,
-    required this.color,
-    required this.imageUrl,
-    required this.startWork,
-    this.showLogo = true,
-    this.showTitle = true,
-  });
-
-  final String name;
-  final String color;
-  final String imageUrl;
-  final String startWork;
-  final bool showLogo;
-  final bool showTitle;
+    required super.name,
+    required super.color,
+    required super.imageUrl,
+    required super.startWork,
+    bool? showLogo,
+    bool? showTitle,
+  }) : super(
+          showLogo: showLogo ?? false,
+          showTitle: showTitle ?? false,
+        );
 
   @override
   int get hashCode => name.hashCode;

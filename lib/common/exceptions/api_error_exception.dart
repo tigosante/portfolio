@@ -1,4 +1,4 @@
-import 'package:portfolio/common/exceptions/exceptions.dart' show BaseException;
+import 'package:portfolio/common/common.dart' show BaseException;
 
 class ApiErrorException extends BaseException {
   ApiErrorException({required super.message, super.stackTrace}) : super(code: codeValue);

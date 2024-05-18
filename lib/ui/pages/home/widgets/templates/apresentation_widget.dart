@@ -39,7 +39,7 @@ class ApresentationWidget extends StatelessWidget {
               SkillSectionWidget(
                 data: SkillSectionData(
                   title: section.key,
-                  skills: section.value.map(SkillData.fromJson).toList(),
+                  skills: [],
                 ),
               ),
           ],

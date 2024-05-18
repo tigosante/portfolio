@@ -1,5 +1,5 @@
 import 'package:either_dart/either.dart' show Either, Right;
-import 'package:portfolio/common/exceptions/exceptions.dart' show BaseException;
+import 'package:portfolio/common/common.dart' show BaseException;
 import 'package:portfolio/data/models/skill_model.dart';
 import 'package:portfolio/domain/domain.dart' show SkillRepository;
 

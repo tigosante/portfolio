@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/common/common.dart';
-import 'package:portfolio/ui/pages/home/widgets/widgets.dart' show SkillData, SkillWidget;
+import 'package:portfolio/common/common.dart' show BuildContextExtension, StringExtension;
+import 'package:portfolio/domain/domain.dart' show SkillEntity;
+import 'package:portfolio/ui/pages/home/widgets/widgets.dart' show SkillWidget;
 import 'package:portfolio/ui/ui.dart';
 
 class SkillSectionData {
@@ -10,7 +11,7 @@ class SkillSectionData {
   });
 
   final String title;
-  final List<SkillData> skills;
+  final List<SkillEntity> skills;
 }
 
 // ignore: must_be_immutable

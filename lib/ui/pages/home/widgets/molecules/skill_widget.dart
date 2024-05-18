@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:portfolio/common/common.dart';
+import 'package:portfolio/common/common.dart' show BuildContextExtension, StringExtension;
+import 'package:portfolio/domain/domain.dart' show SkillEntity;
 import 'package:portfolio/ui/pages/home/widgets/atoms/atoms.dart';
 import 'package:portfolio/ui/ui.dart';
 
 // ignore: must_be_immutable
 class SkillWidget extends StatelessWidget {
   SkillWidget(
-    SkillData data, {
+    SkillEntity data, {
     super.key,
   }) : _data = data;
 
-  final SkillData _data;
+  final SkillEntity _data;
 
   bool _showHover = false;
   void Function(void Function())? _hoverState;
