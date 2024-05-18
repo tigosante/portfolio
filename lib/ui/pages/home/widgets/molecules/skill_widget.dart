@@ -4,35 +4,6 @@ import 'package:portfolio/common/common.dart';
 import 'package:portfolio/ui/pages/home/widgets/atoms/atoms.dart';
 import 'package:portfolio/ui/ui.dart';
 
-class SkillData {
-  const SkillData({
-    required this.name,
-    required this.color,
-    required this.imageUrl,
-    required this.startWork,
-    this.showLogo = true,
-    this.showTitle = true,
-  });
-
-  final String name;
-  final String color;
-  final String imageUrl;
-  final String startWork;
-  final bool showLogo;
-  final bool showTitle;
-
-  factory SkillData.fromJson(Map<String, dynamic> json) {
-    return SkillData(
-      name: json['name'] as String,
-      color: json['color'] as String? ?? '',
-      imageUrl: json['logo'] as String? ?? '',
-      startWork: json['start_work'] as String? ?? '',
-      showTitle: bool.tryParse(json['show_title']?.toString().trim() ?? '') ?? true,
-      showLogo: bool.tryParse(json['show_logo']?.toString().trim() ?? '') ?? true,
-    );
-  }
-}
-
 // ignore: must_be_immutable
 class SkillWidget extends StatelessWidget {
   SkillWidget(

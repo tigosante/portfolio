@@ -14,10 +14,12 @@ dependencies:
   enefty_icons: 1.0.7
   url_launcher: 6.2.6
   flutter_svg: 2.0.10+1
+  either_dart: 1.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  mocktail: 1.0.3
   flutter_lints: 3.0.0
   very_good_analysis: 5.1.0
 
