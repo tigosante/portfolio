@@ -2,7 +2,7 @@ import 'package:either_dart/either.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:portfolio/common/common.dart' show ApiErrorException, BaseException;
-import 'package:portfolio/domain/domain.dart' show GetSkillsUsecase, SkillTypeEntity;
+import 'package:portfolio/domain/domain.dart' show GetSkillsUsecase, SkillEntity, SkillTypeEntity;
 
 import 'get_skills_usecase_mock.dart';
 
@@ -30,8 +30,26 @@ void main() {
         expect(skills, isA<Either<BaseException, List<SkillTypeEntity>>>());
         final right = skills.right;
         expect(right.isEmpty, equals(false));
-        expect(right.first, isA<SkillTypeEntity>());
         expect(right.first == list.first, equals(true));
+      });
+      test('should return Lang section with dart skill', () async {
+        const type = 'Lang';
+        const skill = SkillEntity(name: 'Dart', imageUrl: '', color: '#205c9a', startWork: '2019', type: type);
+        when(usecase.call).thenAnswer(
+          (_) async => Right([
+            SkillTypeEntity(title: type, skills: const [skill]),
+          ]),
+        );
+        final skills = await usecase();
+
+        expect(skills, isA<Either<BaseException, List<SkillTypeEntity>>>());
+        final right = skills.right;
+        expect(right.isEmpty, equals(false));
+        expect(right.first, isA<SkillTypeEntity>());
+        final value = right.first.skills;
+        expect(value, isA<List<SkillEntity>>());
+        expect(value.first == skill, equals(true));
+        expect(value.first.type, equals(type));
       });
     });
     group('Fail case  🧪', () {

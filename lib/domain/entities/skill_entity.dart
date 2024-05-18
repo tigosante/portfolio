@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart' show immutable;
 class SkillEntity {
   const SkillEntity({
     required this.name,
+    required this.type,
     required this.color,
     required this.imageUrl,
     required this.startWork,
@@ -12,6 +13,7 @@ class SkillEntity {
   });
 
   final String name;
+  final String type;
   final String color;
   final String imageUrl;
   final String startWork;
