@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:portfolio/extensions/extensions.dart';
+import 'package:portfolio/common/common.dart';
 import 'package:portfolio/ui/pages/home/widgets/atoms/atoms.dart';
 import 'package:portfolio/ui/ui.dart';
 

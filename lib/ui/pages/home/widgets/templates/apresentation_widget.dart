@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/extensions/extensions.dart' show BuildContextExtension;
+import 'package:portfolio/common/common.dart' show BuildContextExtension;
 import 'package:portfolio/ui/pages/home/widgets/widgets.dart';
 
 class ApresentationWidget extends StatelessWidget {

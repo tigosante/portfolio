@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:portfolio/extensions/extensions.dart' show BuildContextExtension;
+import 'package:portfolio/common/common.dart' show BuildContextExtension;
 import 'package:portfolio/ui/pages/home/widgets/widgets.dart' show CircledIconWidget;
 import 'package:portfolio/ui/ui.dart' show IconType, IconsWidget;
 

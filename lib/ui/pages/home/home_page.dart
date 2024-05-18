@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/extensions/extensions.dart';
+import 'package:portfolio/common/common.dart';
 import 'package:portfolio/ui/pages/home/widgets/widgets.dart';
 import 'package:portfolio/ui/ui.dart' show AppBarWidget, TextWidget;
 

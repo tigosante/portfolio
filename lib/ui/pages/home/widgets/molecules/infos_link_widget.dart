@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/extensions/extensions.dart' show BuildContextExtension, StringExtension;
+import 'package:portfolio/common/common.dart' show BuildContextExtension, StringExtension;
 import 'package:portfolio/ui/pages/home/widgets/widgets.dart';
 import 'package:portfolio/ui/ui.dart' show IconType, TextEmailWidget, TextWidget;
 
