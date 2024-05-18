@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/extensions/extensions.dart';
 import 'package:portfolio/ui/ui.dart' show AppTextTypeEnum;
 
 class TextWidget extends StatelessWidget {
@@ -20,11 +21,23 @@ class TextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    final text = Text(
       _data,
       softWrap: true,
       textAlign: _textAlign,
       style: _style ?? _textType.getStyle(context),
     );
+
+    if (_data.isURL()) {
+      return MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: GestureDetector(
+          onTap: _data.launchLink,
+          child: text,
+        ),
+      );
+    }
+
+    return text;
   }
 }

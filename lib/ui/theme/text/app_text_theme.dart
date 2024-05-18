@@ -1,52 +1,52 @@
-import 'package:flutter/material.dart'
-    show Brightness, FontWeight, MaterialColor, TextStyle, TextTheme;
+import 'package:flutter/material.dart' show Brightness, FontWeight, MaterialColor, TextStyle, TextTheme;
 import 'package:portfolio/ui/theme/theme.dart' show AppColors;
 
 class AppTextTheme extends TextTheme {
   const AppTextTheme({
-    required this.appColors,
+    required this.colors,
     required this.brightness,
   });
 
-  final AppColors appColors;
+  final AppColors colors;
   final Brightness brightness;
 
-  String get primaryFontFamily => 'SFUIText';
+  String get primaryFontFamily => 'SF Pro Display';
 
-  MaterialColor get textColor {
-    return switch (brightness) {
-      Brightness.light => appColors.onSurface,
-      Brightness.dark => appColors.surface,
-    };
-  }
+  MaterialColor get textColor => colors.onSurface;
 
   @override
   TextStyle get displayLarge => TextStyle(
-        fontSize: 24,
+        fontSize: 48,
         color: textColor,
-        fontWeight: FontWeight.bold,
+        height: 1.0834933333,
+        letterSpacing: -0.048,
+        fontWeight: FontWeight.w600,
         fontFamily: primaryFontFamily,
       );
 
   @override
   TextStyle get displayMedium => TextStyle(
-        fontSize: 20,
+        fontSize: 44,
         color: textColor,
-        fontWeight: FontWeight.bold,
+        height: 1.0834933333,
+        letterSpacing: -0.048,
+        fontWeight: FontWeight.w600,
         fontFamily: primaryFontFamily,
       );
 
   @override
   TextStyle get displaySmall => TextStyle(
-        fontSize: 18,
+        fontSize: 40,
         color: textColor,
-        fontWeight: FontWeight.bold,
+        height: 1.0834933333,
+        letterSpacing: -0.048,
+        fontWeight: FontWeight.w600,
         fontFamily: primaryFontFamily,
       );
 
   @override
   TextStyle get headlineMedium => TextStyle(
-        fontSize: 16,
+        fontSize: 36,
         color: textColor,
         fontWeight: FontWeight.bold,
         fontFamily: primaryFontFamily,
@@ -54,7 +54,7 @@ class AppTextTheme extends TextTheme {
 
   @override
   TextStyle get headlineSmall => TextStyle(
-        fontSize: 14,
+        fontSize: 32,
         color: textColor,
         fontWeight: FontWeight.bold,
         fontFamily: primaryFontFamily,
@@ -62,7 +62,7 @@ class AppTextTheme extends TextTheme {
 
   @override
   TextStyle get titleLarge => TextStyle(
-        fontSize: 12,
+        fontSize: 28,
         color: textColor,
         fontWeight: FontWeight.bold,
         fontFamily: primaryFontFamily,
@@ -70,7 +70,7 @@ class AppTextTheme extends TextTheme {
 
   @override
   TextStyle get titleMedium => TextStyle(
-        fontSize: 16,
+        fontSize: 22,
         color: textColor,
         fontWeight: FontWeight.normal,
         fontFamily: primaryFontFamily,
@@ -78,7 +78,7 @@ class AppTextTheme extends TextTheme {
 
   @override
   TextStyle get titleSmall => TextStyle(
-        fontSize: 14,
+        fontSize: 18,
         color: textColor,
         fontWeight: FontWeight.normal,
         fontFamily: primaryFontFamily,
@@ -86,14 +86,6 @@ class AppTextTheme extends TextTheme {
 
   @override
   TextStyle get bodyLarge => TextStyle(
-        fontSize: 16,
-        color: textColor,
-        fontWeight: FontWeight.normal,
-        fontFamily: primaryFontFamily,
-      );
-
-  @override
-  TextStyle get bodyMedium => TextStyle(
         fontSize: 14,
         color: textColor,
         fontWeight: FontWeight.normal,
@@ -101,8 +93,16 @@ class AppTextTheme extends TextTheme {
       );
 
   @override
-  TextStyle get bodySmall => TextStyle(
+  TextStyle get bodyMedium => TextStyle(
         fontSize: 12,
+        color: textColor,
+        fontWeight: FontWeight.normal,
+        fontFamily: primaryFontFamily,
+      );
+
+  @override
+  TextStyle get bodySmall => TextStyle(
+        fontSize: 10,
         color: textColor,
         fontWeight: FontWeight.normal,
         fontFamily: primaryFontFamily,

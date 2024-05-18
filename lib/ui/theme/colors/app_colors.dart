@@ -1,36 +1,90 @@
-import 'package:flutter/material.dart' show Brightness, Color, MaterialColor;
+import 'package:flutter/material.dart' show Color, MaterialColor;
 
-class AppColors {
-  factory AppColors.light() {
-    return AppColors._(brightness: Brightness.light);
-  }
-  factory AppColors.dark() {
-    return AppColors._(brightness: Brightness.dark);
-  }
-  AppColors._({required Brightness brightness}) : _brightness = brightness;
-
-  final Brightness _brightness;
+abstract class AppColors {
+  AppColors();
 
   final MaterialColor red = const MaterialColor(0xFFB00020, <int, Color>{});
+  final MaterialColor blue = const MaterialColor(0xFF176ece, <int, Color>{});
   final MaterialColor white = const MaterialColor(0xFFffffff, <int, Color>{});
   final MaterialColor black = const MaterialColor(0xFF000000, <int, Color>{});
-  final MaterialColor lighterGray = const MaterialColor(0xFFfcfcfc, <int, Color>{});
+  final MaterialColor black87 = const MaterialColor(0xFF2c2c34, <int, Color>{});
+  final MaterialColor darkGrey = const MaterialColor(0xFF6e6e76, <int, Color>{});
+  final MaterialColor lighterGrey = const MaterialColor(0xFFf5f5f7, <int, Color>{});
+  final MaterialColor transparent = const MaterialColor(0x00000000, <int, Color>{});
 
-  bool get _isLight => _brightness == Brightness.light;
+  MaterialColor get link;
 
+  MaterialColor get error;
+  MaterialColor get onError;
+
+  MaterialColor get primary;
+  MaterialColor get onPrimary;
+
+  MaterialColor get secondary;
+  MaterialColor get onSecondary;
+
+  MaterialColor get surface;
+  MaterialColor get onSurface;
+
+  factory AppColors.dark() => AppColorsDark();
+
+  factory AppColors.light() => AppColorsLight();
+}
+
+class AppColorsLight extends AppColors {
+  @override
+  MaterialColor get link => blue;
+
+  @override
   MaterialColor get error => red;
 
-  MaterialColor get primary => const MaterialColor(0xFF4831d4, <int, Color>{});
-  MaterialColor get onPrimary => lighterGray;
-  MaterialColor get primaryInverse => _isLight ? primary : onPrimary;
+  @override
+  MaterialColor get onError => red;
 
-  MaterialColor get secondary => const MaterialColor(0xFFccf381, <int, Color>{});
+  @override
+  MaterialColor get primary => black87;
+
+  @override
+  MaterialColor get onPrimary => lighterGrey;
+
+  @override
+  MaterialColor get secondary => darkGrey;
+
+  @override
   MaterialColor get onSecondary => black;
-  MaterialColor get secondaryInverse => _isLight ? secondary : onSecondary;
 
-  MaterialColor get surface => lighterGray;
+  @override
+  MaterialColor get surface => lighterGrey;
+
+  @override
   MaterialColor get onSurface => black;
-  MaterialColor get surfaceInverse => _isLight ? surface : onSurface;
+}
 
-  MaterialColor get transparent => const MaterialColor(0x00000000, <int, Color>{});
+class AppColorsDark extends AppColors {
+  @override
+  MaterialColor get link => blue;
+
+  @override
+  MaterialColor get error => red;
+
+  @override
+  MaterialColor get onError => red;
+
+  @override
+  MaterialColor get primary => lighterGrey;
+
+  @override
+  MaterialColor get onPrimary => black87;
+
+  @override
+  MaterialColor get secondary => darkGrey;
+
+  @override
+  MaterialColor get onSecondary => lighterGrey;
+
+  @override
+  MaterialColor get surface => black;
+
+  @override
+  MaterialColor get onSurface => lighterGrey;
 }

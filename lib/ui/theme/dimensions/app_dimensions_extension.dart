@@ -1,61 +1,60 @@
 import 'package:flutter/material.dart' show ThemeExtension;
 import 'package:portfolio/ui/theme/dimensions/app_dimensions.dart';
 
-class AppDimensionsExtension extends ThemeExtension<AppDimensionsExtension>
-    implements AppDimensions {
+class AppDimensionsExtension extends ThemeExtension<AppDimensionsExtension> implements AppDimensions {
   AppDimensionsExtension({
-    required AppDimensions appDimensions,
-  }) : _appDimensions = appDimensions;
+    required AppDimensions dimensions,
+  }) : _dimensions = dimensions;
 
-  final AppDimensions _appDimensions;
-
-  @override
-  AppType get appType => _appDimensions.appType;
+  final AppDimensions _dimensions;
 
   @override
-  double get noneValue => _appDimensions.noneValue;
+  AppType get appType => _dimensions.appType;
 
   @override
-  double get smallValue => _appDimensions.smallValue;
+  double get noneValue => _dimensions.noneValue;
 
   @override
-  double get mediumValue => _appDimensions.mediumValue;
+  double get smallValue => _dimensions.smallValue;
 
   @override
-  double get largeValue => _appDimensions.largeValue;
+  double get mediumValue => _dimensions.mediumValue;
 
   @override
-  double get extraLargeValue => _appDimensions.extraLargeValue;
+  double get largeValue => _dimensions.largeValue;
 
   @override
-  double get borderRadiusNone => _appDimensions.borderRadiusNone;
+  double get extraLargeValue => _dimensions.extraLargeValue;
 
   @override
-  double get borderRadiusSmall => _appDimensions.borderRadiusSmall;
+  double get screenMaxWidth => _dimensions.screenMaxWidth;
 
   @override
-  double get borderRadiusMedium => _appDimensions.borderRadiusMedium;
+  double get borderRadiusNone => _dimensions.borderRadiusNone;
 
   @override
-  double get borderRadiusLarge => _appDimensions.borderRadiusLarge;
+  double get borderRadiusSmall => _dimensions.borderRadiusSmall;
 
   @override
-  double get paddingNone => _appDimensions.paddingNone;
+  double get borderRadiusMedium => _dimensions.borderRadiusMedium;
 
   @override
-  double get paddingSmall => _appDimensions.paddingSmall;
+  double get borderRadiusLarge => _dimensions.borderRadiusLarge;
 
   @override
-  double get paddingMedium => _appDimensions.paddingMedium;
+  double get paddingNone => _dimensions.paddingNone;
 
   @override
-  double get paddingLarge => _appDimensions.paddingLarge;
+  double get paddingSmall => _dimensions.paddingSmall;
 
   @override
-  double get paddingExtraLarge => _appDimensions.paddingExtraLarge;
+  double get paddingMedium => _dimensions.paddingMedium;
 
   @override
-  AppDimensions get noFactor => _appDimensions.noFactor;
+  double get paddingLarge => _dimensions.paddingLarge;
+
+  @override
+  double get paddingExtraLarge => _dimensions.paddingExtraLarge;
 
   @override
   ThemeExtension<AppDimensionsExtension> copyWith() {

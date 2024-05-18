@@ -12,7 +12,8 @@ dependencies:
     sdk: flutter
   cupertino_icons: 1.0.8
   enefty_icons: 1.0.7
-  lottie: 3.1.1
+  url_launcher: 6.2.6
+  flutter_svg: 2.0.10+1
 
 dev_dependencies:
   flutter_test:
@@ -22,26 +23,20 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  assets:
-    - assets/animations/
   fonts:
-    - family: SFUIText
+    - family: SF Pro Display
       fonts:
-        - asset: assets/fonts/sf-ui-text/SFUIText-Bold.ttf
-        - asset: assets/fonts/sf-ui-text/SFUIText-BoldItalic.ttf
+        - asset: assets/fonts/sf-pro-display/sf-pro-display-black-italic.otf
+        - asset: assets/fonts/sf-pro-display/sf-pro-display-bold.otf
+        - asset: assets/fonts/sf-pro-display/sf-pro-display-heavy-italic.otf
           style: italic
-        - asset: assets/fonts/sf-ui-text/SFUIText-Heavy.ttf
-        - asset: assets/fonts/sf-ui-text/SFUIText-HeavyItalic.ttf
+        - asset: assets/fonts/sf-pro-display/sf-pro-display-light-italic.otf
           style: italic
-        - asset: assets/fonts/sf-ui-text/SFUIText-Light.ttf
-        - asset: assets/fonts/sf-ui-text/SFUIText-LightItalic.ttf
+        - asset: assets/fonts/sf-pro-display/sf-pro-display-medium.otf
+        - asset: assets/fonts/sf-pro-display/sf-pro-display-regular.otf
+        - asset: assets/fonts/sf-pro-display/sf-pro-display-semi-bold-italic.otf
           style: italic
-        - asset: assets/fonts/sf-ui-text/SFUIText-Medium.ttf
-        - asset: assets/fonts/sf-ui-text/SFUIText-MediumItalic.ttf
+        - asset: assets/fonts/sf-pro-display/sf-pro-display-thin-italic.otf
           style: italic
-        - asset: assets/fonts/sf-ui-text/SFUIText-Regular.ttf
-        - asset: assets/fonts/sf-ui-text/SFUIText-RegularItalic.ttf
-          style: italic
-        - asset: assets/fonts/sf-ui-text/SFUIText-Semibold.ttf
-        - asset: assets/fonts/sf-ui-text/SFUIText-SemiboldItalic.ttf
+        - asset: assets/fonts/sf-pro-display/sf-pro-display-ultra-light-italic.otf
           style: italic

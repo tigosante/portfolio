@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/extensions/extensions.dart'
-    show BuildContextExtension;
+import 'package:portfolio/extensions/extensions.dart' show BuildContextExtension;
 import 'package:portfolio/ui/ui.dart' show AppColors, AppTheme, HomePage;
 
 void main() {
@@ -12,17 +11,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = AppTheme(
-      appType: context.appType,
-      appColorsDark: AppColors.dark(),
-      appColorsLight: AppColors.light(),
-    );
+    final theme = AppTheme(appType: context.appType);
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: theme.light,
-      darkTheme: theme.dark,
-      debugShowCheckedModeBanner: false,
       home: const HomePage(),
+      debugShowCheckedModeBanner: false,
+      theme: theme.light(AppColors.light()),
+      darkTheme: theme.dark(AppColors.dark()),
+      scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
     );
   }
 }

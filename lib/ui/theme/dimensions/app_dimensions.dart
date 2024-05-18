@@ -1,15 +1,7 @@
 enum AppType {
-  none(factor: 1),
-  mobile(factor: 1),
-  desktop(factor: 2);
-
-  final double factor;
-
-  double applyFactor(double value) {
-    return value == 0 ? value : value * factor;
-  }
-
-  const AppType({required this.factor});
+  none,
+  mobile,
+  desktop;
 }
 
 class AppDimensions {
@@ -20,9 +12,8 @@ class AppDimensions {
     this.mediumValue = 16.0,
     this.largeValue = 24.0,
     this.extraLargeValue = 32.0,
+    this.screenMaxWidth = 1250,
   });
-
-  static AppDimensions? _appDimensions;
 
   final AppType appType;
 
@@ -31,24 +22,16 @@ class AppDimensions {
   final double mediumValue;
   final double largeValue;
   final double extraLargeValue;
+  final double screenMaxWidth;
 
-  double get borderRadiusNone => appType.applyFactor(noneValue);
-  double get borderRadiusSmall => appType.applyFactor(smallValue);
-  double get borderRadiusMedium => appType.applyFactor(mediumValue);
-  double get borderRadiusLarge => appType.applyFactor(largeValue);
+  double get borderRadiusNone => noneValue;
+  double get borderRadiusSmall => smallValue;
+  double get borderRadiusMedium => mediumValue;
+  double get borderRadiusLarge => largeValue;
 
-  double get paddingNone => appType.applyFactor(noneValue);
-  double get paddingSmall => appType.applyFactor(smallValue);
-  double get paddingMedium => appType.applyFactor(mediumValue);
-  double get paddingLarge => appType.applyFactor(largeValue);
-  double get paddingExtraLarge => appType.applyFactor(extraLargeValue);
-
-  AppDimensions get noFactor => _appDimensions ??= AppDimensions(
-        appType: AppType.none,
-        noneValue: noneValue,
-        smallValue: smallValue,
-        mediumValue: mediumValue,
-        largeValue: largeValue,
-        extraLargeValue: extraLargeValue,
-      );
+  double get paddingNone => noneValue;
+  double get paddingSmall => smallValue;
+  double get paddingMedium => mediumValue;
+  double get paddingLarge => largeValue;
+  double get paddingExtraLarge => extraLargeValue;
 }

@@ -1,58 +1,63 @@
 import 'package:flutter/material.dart' show MaterialColor, ThemeExtension;
 import 'package:portfolio/ui/ui.dart' show AppColors;
 
-class AppColorsExtension extends ThemeExtension<AppColorsExtension>
-    implements AppColors {
+class AppColorsExtension extends ThemeExtension<AppColorsExtension> implements AppColors {
   AppColorsExtension({
-    required this.appColors,
+    required this.colors,
   });
 
-  final AppColors appColors;
+  final AppColors colors;
 
   @override
-  MaterialColor get red => appColors.red;
+  MaterialColor get red => colors.red;
 
   @override
-  MaterialColor get white => appColors.white;
+  MaterialColor get blue => colors.blue;
 
   @override
-  MaterialColor get black => appColors.black;
+  MaterialColor get white => colors.white;
 
   @override
-  MaterialColor get lighterGray => appColors.lighterGray;
+  MaterialColor get black => colors.black;
 
   @override
-  MaterialColor get transparent => appColors.transparent;
+  MaterialColor get black87 => colors.black87;
 
   @override
-  MaterialColor get error => red;
+  MaterialColor get darkGrey => colors.darkGrey;
 
   @override
-  MaterialColor get primary => appColors.primary;
+  MaterialColor get lighterGrey => colors.lighterGrey;
 
   @override
-  MaterialColor get onPrimary => appColors.onPrimary;
+  MaterialColor get transparent => colors.transparent;
 
   @override
-  MaterialColor get primaryInverse => appColors.primaryInverse;
+  MaterialColor get link => colors.link;
 
   @override
-  MaterialColor get secondary => appColors.secondary;
+  MaterialColor get error => colors.error;
 
   @override
-  MaterialColor get onSecondary => appColors.onSecondary;
+  MaterialColor get onError => colors.onError;
 
   @override
-  MaterialColor get secondaryInverse => appColors.secondaryInverse;
+  MaterialColor get primary => colors.primary;
 
   @override
-  MaterialColor get surface => appColors.surface;
+  MaterialColor get onPrimary => colors.onPrimary;
 
   @override
-  MaterialColor get onSurface => appColors.onSurface;
+  MaterialColor get secondary => colors.secondary;
 
   @override
-  MaterialColor get surfaceInverse => appColors.surfaceInverse;
+  MaterialColor get onSecondary => colors.onSecondary;
+
+  @override
+  MaterialColor get surface => colors.surface;
+
+  @override
+  MaterialColor get onSurface => colors.onSurface;
 
   @override
   ThemeExtension<AppColorsExtension> copyWith() {
@@ -60,10 +65,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension>
   }
 
   @override
-  ThemeExtension<AppColorsExtension> lerp(
-    covariant ThemeExtension<AppColorsExtension>? other,
-    double t,
-  ) {
+  ThemeExtension<AppColorsExtension> lerp(covariant ThemeExtension<AppColorsExtension>? other, double t) {
     return this;
   }
 }

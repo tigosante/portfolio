@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/extensions/extensions.dart';
 import 'package:portfolio/ui/pages/home/widgets/widgets.dart';
-import 'package:portfolio/ui/ui.dart';
+import 'package:portfolio/ui/ui.dart' show AppBarWidget, TextWidget;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,30 +11,47 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<Widget> _widgets = [
-    const ApresentationWidget(),
-    const ProjectsWidget(),
-  ];
+  Widget get _appBar => AppBarWidget(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: List.generate(
+            3,
+            (index) => Padding(
+              padding: EdgeInsets.symmetric(horizontal: context.dimensions.paddingSmall),
+              child: TextWidget(
+                'Option ${index + 1}',
+                style: context.textTheme.bodyMedium.copyWith(color: context.colors.primary),
+              ),
+            ),
+          ),
+        ),
+      );
+
+  List<Widget> get _children => [
+        _appBar,
+        Padding(
+          padding: EdgeInsets.only(top: context.dimensions.paddingExtraLarge * 3),
+          child: const ApresentationWidget(),
+        ),
+        const ProjectsWidget(),
+      ];
 
   @override
   Widget build(BuildContext context) {
-    final headerTextStyle = context.appTextTheme.headlineMedium.copyWith(color: context.appColors.surface);
-
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      backgroundColor: context.appColors.surfaceInverse,
-      appBar: AppBarWidget(
-        child: Wrap(
-          alignment: WrapAlignment.center,
-          spacing: context.appDimensions.noFactor.paddingSmall,
-          children: List.generate(3, (index) => TextWidget('Option ${index + 1}', style: headerTextStyle)),
+      body: Container(
+        alignment: Alignment.topCenter,
+        padding: EdgeInsets.symmetric(horizontal: context.dimensions.paddingLarge),
+        child: ConstrainedBox(
+          constraints: BoxConstraints(maxWidth: context.dimensions.screenMaxWidth),
+          child: ListView.separated(
+            shrinkWrap: true,
+            itemCount: _children.length,
+            physics: const ClampingScrollPhysics(),
+            itemBuilder: (_, index) => _children[index],
+            separatorBuilder: (_, index) => SizedBox(height: index == 0 ? 0 : context.dimensions.paddingExtraLarge),
+          ),
         ),
-      ),
-      body: ListView.separated(
-        itemCount: _widgets.length,
-        physics: const ClampingScrollPhysics(),
-        itemBuilder: (context, index) => _widgets[index],
-        separatorBuilder: (context, index) => SizedBox(height: context.appDimensions.paddingMedium),
       ),
     );
   }

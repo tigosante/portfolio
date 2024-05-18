@@ -17,18 +17,14 @@ class AppBarWidget extends PreferredSize {
 
   @override
   Widget build(BuildContext context) {
-    final color = context.appColors.surfaceInverse;
-    return ColoredBox(
-      color: color.withOpacity(0.1),
-      child: ClipRRect(
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-          child: Container(
-            color: color.withOpacity(0.9),
-            height: preferredSize.height,
-            alignment: Alignment.center,
-            child: _child,
-          ),
+    return ClipRRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+        child: Container(
+          color: context.colors.surface.withOpacity(0.9),
+          height: preferredSize.height,
+          alignment: Alignment.center,
+          child: _child,
         ),
       ),
     );

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show Brightness, BuildContext, MediaQuery, Size, Theme;
 import 'package:portfolio/ui/ui.dart' show AppColorsExtension, AppDimensionsExtension, AppTextThemeExtension, AppType;
 
 extension BuildContextExtension on BuildContext {
@@ -7,17 +7,19 @@ extension BuildContextExtension on BuildContext {
     return width > 640 ? AppType.desktop : AppType.mobile;
   }
 
+  Brightness get brightness => Theme.of(this).brightness;
+
   Size get appSize => MediaQuery.sizeOf(this);
 
-  AppColorsExtension get appColors {
+  AppColorsExtension get colors {
     return _getExtension<AppColorsExtension>();
   }
 
-  AppDimensionsExtension get appDimensions {
+  AppDimensionsExtension get dimensions {
     return _getExtension<AppDimensionsExtension>();
   }
 
-  AppTextThemeExtension get appTextTheme {
+  AppTextThemeExtension get textTheme {
     return _getExtension<AppTextThemeExtension>();
   }
 
