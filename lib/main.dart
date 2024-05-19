@@ -1,24 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/common/common.dart' show BuildContextExtension;
-import 'package:portfolio/presenter/presenter.dart' show AppColors, AppTheme, HomePage;
+import 'package:get_it/get_it.dart' show GetIt;
+import 'package:portfolio/application.dart';
+import 'package:portfolio/common/injector/app_injector_impl.dart';
+import 'package:portfolio/common/injector/injector_handler.dart';
 
+final _getIt = GetIt.instance;
 void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = AppTheme(appType: context.appType);
-    return MaterialApp(
-      title: 'Flutter Demo',
-      home: const HomePage(),
-      debugShowCheckedModeBanner: false,
-      theme: theme.light(AppColors.light()),
-      darkTheme: theme.dark(AppColors.dark()),
-      scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-    );
-  }
+  runApp(
+    Application(
+      router: injectorHandler(AppInjectorImpl(provider: _getIt)).get(),
+    ),
+  );
 }

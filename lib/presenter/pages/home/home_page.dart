@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/common/common.dart';
-import 'package:portfolio/data/data.dart';
-import 'package:portfolio/domain/usecases/get_skills_usecase_impl.dart';
-import 'package:portfolio/presenter/features/apresentation/store/apresentation_store_impl.dart';
-import 'package:portfolio/presenter/presenter.dart' show AppBarWidget, TextWidget;
+import 'package:portfolio/presenter/presenter.dart' show AppBarWidget, ApresentationStore, TextWidget;
 import 'package:portfolio/presenter/presenter.dart' show ApresentationFeatureWidget, ProjectsFeatureWidget;
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({
+    required ApresentationStore skillStore,
+    super.key,
+  }) : _skillStore = skillStore;
+
+  final ApresentationStore _skillStore;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -34,10 +36,7 @@ class _HomePageState extends State<HomePage> {
         _appBar,
         Padding(
           padding: EdgeInsets.only(top: context.dimensions.paddingExtraLarge * 3),
-          child: ApresentationFeatureWidget(
-            // TODO
-            store: ApresentationStoreImpl(usecase: GetSkillsUsecaseImpl(repository: SkillRepositoryImpl())),
-          ),
+          child: ApresentationFeatureWidget(store: widget._skillStore),
         ),
         const ProjectsFeatureWidget(),
       ];
