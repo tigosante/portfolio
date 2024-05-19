@@ -19,5 +19,8 @@ class EnvironmentImpl implements Environment {
   String get githubUser => const String.fromEnvironment('GETHUB_USER');
 
   @override
+  String get skillsFileName => const String.fromEnvironment('SKILLS_FILE_NAME');
+
+  @override
   String get linkedInProfileUrl => const String.fromEnvironment('LINKEDIN_PROFILE_URL');
 }

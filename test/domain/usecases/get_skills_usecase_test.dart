@@ -9,6 +9,9 @@ import 'get_skills_usecase_mock.dart';
 void main() {
   group('GetSkillsUsecaseMock |', () {
     late GetSkillsUsecase usecase;
+    const owner = 'owner';
+    const repo = 'repo';
+    const fileName = 'fileName';
 
     setUp(() {
       usecase = GetSkillsUsecaseMock();
@@ -17,15 +20,15 @@ void main() {
     group('Success case  🧪', () {
       final list = <SkillTypeEntity>[];
       test('should return a list of SkillTypeEntity', () async {
-        when(usecase.call).thenAnswer((_) async => Right(list));
-        final skills = await usecase();
+        when(() => usecase(owner: owner, repo: repo, fileName: fileName)).thenAnswer((_) async => Right(list));
+        final skills = await usecase(owner: owner, repo: repo, fileName: fileName);
         expect(skills, isA<Either<BaseException, List<SkillTypeEntity>>>());
         expect(skills.right.isEmpty, equals(true));
       });
       test('should return Lang section', () async {
         list.add(SkillTypeEntity(title: 'Lang', skills: []));
-        when(usecase.call).thenAnswer((_) async => Right(list));
-        final skills = await usecase();
+        when(() => usecase(owner: owner, repo: repo, fileName: fileName)).thenAnswer((_) async => Right(list));
+        final skills = await usecase(owner: owner, repo: repo, fileName: fileName);
 
         expect(skills, isA<Either<BaseException, List<SkillTypeEntity>>>());
         final right = skills.right;
@@ -35,12 +38,12 @@ void main() {
       test('should return Lang section with dart skill', () async {
         const type = 'Lang';
         const skill = SkillEntity(name: 'Dart', imageUrl: '', color: '#205c9a', startWork: '2019', type: type);
-        when(usecase.call).thenAnswer(
+        when(() => usecase(owner: owner, repo: repo, fileName: fileName)).thenAnswer(
           (_) async => Right([
             SkillTypeEntity(title: type, skills: const [skill]),
           ]),
         );
-        final skills = await usecase();
+        final skills = await usecase(owner: owner, repo: repo, fileName: fileName);
 
         expect(skills, isA<Either<BaseException, List<SkillTypeEntity>>>());
         final right = skills.right;
@@ -54,8 +57,9 @@ void main() {
     });
     group('Fail case  🧪', () {
       test('should return a Left BaseException value', () async {
-        when(usecase.call).thenAnswer((_) async => Left(ApiErrorException(message: 'Api error')));
-        final skills = await usecase();
+        when(() => usecase(owner: owner, repo: repo, fileName: fileName))
+            .thenAnswer((_) async => Left(ApiErrorException(message: 'Api error')));
+        final skills = await usecase(owner: owner, repo: repo, fileName: fileName);
         expect(skills, isA<Either<BaseException, List<SkillTypeEntity>>>());
         expect(skills.isLeft, equals(true));
         final left = skills.left;

@@ -19,6 +19,7 @@
         "--dart-define=USER_NAME=Tiago Silva",
         "--dart-define=USER_EMAIL=tsilvasantos38@gmail.com",
         "--dart-define=LINKEDIN_PROFILE_URL=https://www.linkedin.com/in/tigosante/",
+        "--dart-define=SKILLS_FILE_NAME=skills.json",
       ]
     },
   ]

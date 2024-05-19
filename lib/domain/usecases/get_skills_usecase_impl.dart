@@ -11,8 +11,12 @@ class GetSkillsUsecaseImpl implements GetSkillsUsecase {
   final SkillRepository _repository;
 
   @override
-  Future<Either<BaseException, List<SkillTypeEntity>>> call() async {
-    final either = await _repository.getSkills();
+  Future<Either<BaseException, List<SkillTypeEntity>>> call({
+    required String owner,
+    required String repo,
+    required String fileName,
+  }) async {
+    final either = await _repository.getSkills(owner: owner, repo: repo, fileName: fileName);
     return either.fold(
       Left.new,
       (skillList) {
