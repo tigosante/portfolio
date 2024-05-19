@@ -6,6 +6,18 @@ import 'package:portfolio/domain/domain.dart' show SkillRepository;
 class SkillRepositoryImpl implements SkillRepository {
   @override
   Future<Either<BaseException, List<SkillModel>>> getSkills() async {
-    return const Right([]);
+    return Right(
+      List.generate(
+        19,
+        (index) => SkillModel(
+          name: 'Dart ${index + 1}',
+          color: '#000000',
+          imageUrl: '',
+          startWork: '2019',
+          type: 'Lang',
+          showLogo: false,
+        ),
+      ),
+    );
   }
 }

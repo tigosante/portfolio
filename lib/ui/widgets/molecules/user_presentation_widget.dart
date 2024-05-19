@@ -12,7 +12,7 @@ class UserPresentationWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextWidget(
-          'Oi, sou Tiago!',
+          'Oi, sou ${context.env.userName.split(" ").first}!',
           style: context.textTheme.displayMedium.copyWith(color: context.colors.primary),
         ),
         TextWidget(

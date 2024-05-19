@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/common/common.dart' show BuildContextExtension;
 import 'package:portfolio/ui/ui.dart' show TextWidget;
 
-class ProjectsWidget extends StatelessWidget {
-  const ProjectsWidget({super.key});
+class ProjectsFeatureWidget extends StatelessWidget {
+  const ProjectsFeatureWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    return const SizedBox();
     return Container(
       padding: EdgeInsets.all(context.dimensions.paddingMedium),
       constraints: BoxConstraints(maxWidth: context.dimensions.screenMaxWidth),

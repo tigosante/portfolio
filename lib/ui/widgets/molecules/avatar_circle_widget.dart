@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:portfolio/common/common.dart' show BuildContextExtension;
-import 'package:portfolio/ui/pages/home/widgets/widgets.dart' show CircledIconWidget;
-import 'package:portfolio/ui/ui.dart' show IconType, IconsWidget;
+import 'package:portfolio/ui/ui.dart' show CircledIconWidget, IconType, IconsWidget;
 
 class AvatarCircleWidget extends StatelessWidget {
   const AvatarCircleWidget({

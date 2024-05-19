@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart' show Brightness, BuildContext, MediaQuery, Size, Theme;
+import 'package:portfolio/common/common.dart' show Environment, EnvironmentImpl;
 import 'package:portfolio/ui/ui.dart' show AppColorsExtension, AppDimensionsExtension, AppTextThemeExtension, AppType;
 
 extension BuildContextExtension on BuildContext {
@@ -10,6 +11,8 @@ extension BuildContextExtension on BuildContext {
   Brightness get brightness => Theme.of(this).brightness;
 
   Size get appSize => MediaQuery.sizeOf(this);
+
+  Environment get env => EnvironmentImpl();
 
   AppColorsExtension get colors {
     return _getExtension<AppColorsExtension>();

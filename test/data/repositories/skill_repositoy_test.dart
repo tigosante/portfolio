@@ -26,7 +26,7 @@ void main() {
         expect(right.isEmpty, equals(true));
       });
       test('should return Dart Skill', () async {
-        list.add(const SkillModel(name: 'Dart', color: '#000000', imageUrl: '', startWork: '2019'));
+        list.add(const SkillModel(type: 'Lang', name: 'Dart', color: '#000000', imageUrl: '', startWork: '2019'));
         when(() => repository.getSkills()).thenAnswer((_) async => Right(list));
         final skills = await repository.getSkills();
         expect(skills, isA<Either<BaseException, List<SkillModel>>>());

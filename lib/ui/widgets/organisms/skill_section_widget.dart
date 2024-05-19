@@ -1,27 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/common/common.dart' show BuildContextExtension, StringExtension;
-import 'package:portfolio/domain/domain.dart' show SkillEntity;
-import 'package:portfolio/ui/pages/home/widgets/widgets.dart' show SkillWidget;
-import 'package:portfolio/ui/ui.dart';
-
-class SkillSectionData {
-  const SkillSectionData({
-    required this.title,
-    required this.skills,
-  });
-
-  final String title;
-  final List<SkillEntity> skills;
-}
+import 'package:portfolio/domain/domain.dart' show SkillTypeEntity;
+import 'package:portfolio/ui/ui.dart' show SkillWidget, TextWidget;
 
 // ignore: must_be_immutable
 class SkillSectionWidget extends StatelessWidget {
   SkillSectionWidget({
-    required SkillSectionData data,
+    required SkillTypeEntity data,
     super.key,
   }) : _data = data;
 
-  final SkillSectionData _data;
+  final SkillTypeEntity _data;
 
   bool _showTitle = false;
   void Function(void Function())? _titleState;
@@ -45,7 +34,13 @@ class SkillSectionWidget extends StatelessWidget {
                 return AnimatedSwitcher(
                   duration: const Duration(milliseconds: 500),
                   child: _showTitle
-                      ? TextWidget(title, style: context.textTheme.bodyLarge.copyWith(fontWeight: FontWeight.bold))
+                      ? Padding(
+                          padding: EdgeInsets.only(left: context.dimensions.paddingSmall * 1.5),
+                          child: TextWidget(
+                            title,
+                            style: context.textTheme.bodyLarge.copyWith(fontWeight: FontWeight.bold),
+                          ),
+                        )
                       : const SizedBox(),
                 );
               },
@@ -55,7 +50,6 @@ class SkillSectionWidget extends StatelessWidget {
           Wrap(
             spacing: context.dimensions.paddingLarge,
             runSpacing: context.dimensions.paddingLarge,
-            crossAxisAlignment: WrapCrossAlignment.center,
             children: _data.skills.map(SkillWidget.new).toList(),
           ),
         ],

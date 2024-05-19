@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/common/common.dart' show BuildContextExtension, StringExtension;
 import 'package:portfolio/domain/domain.dart' show SkillEntity;
-import 'package:portfolio/ui/pages/home/widgets/atoms/atoms.dart';
-import 'package:portfolio/ui/ui.dart';
+import 'package:portfolio/ui/ui.dart' show AppColors, CircledIconWidget, TextWidget;
 
 // ignore: must_be_immutable
 class SkillWidget extends StatelessWidget {

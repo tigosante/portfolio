@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/common/common.dart' show BuildContextExtension;
-import 'package:portfolio/ui/pages/home/widgets/widgets.dart' show InfosLinkWidget;
-import 'package:portfolio/ui/ui.dart' show IconType;
+import 'package:portfolio/ui/ui.dart' show IconType, InfosLinkWidget;
 
 class ContactLinksWidget extends StatelessWidget {
   const ContactLinksWidget({super.key});
@@ -12,17 +11,17 @@ class ContactLinksWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const InfosLinkWidget(
+        InfosLinkWidget(
           iconType: IconType.profile,
-          link: 'tsilvasantos38@gmail.com',
+          link: context.env.userEmail,
           title: 'Precisa entrar em contato?',
           textReplacement: 'Fale comigo por aqui',
         ),
         SizedBox(height: context.dimensions.paddingSmall),
-        const InfosLinkWidget(
+        InfosLinkWidget(
           iconType: IconType.link,
+          link: context.env.linkedInProfileUrl,
           title: 'Visite meu perfil no LinkedIn',
-          link: 'https://www.linkedin.com/in/tigosante/',
         ),
       ],
     );
