@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart' show Brightness, BuildContext, MediaQuery, Size, Theme;
 import 'package:portfolio/common/common.dart' show Environment, EnvironmentImpl;
-import 'package:portfolio/ui/ui.dart' show AppColorsExtension, AppDimensionsExtension, AppTextThemeExtension, AppType;
+import 'package:portfolio/presenter/presenter.dart'
+    show AppColorsExtension, AppDimensionsExtension, AppTextThemeExtension, AppType;
 
 extension BuildContextExtension on BuildContext {
   AppType get appType {

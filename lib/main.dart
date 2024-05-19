@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/common/common.dart' show BuildContextExtension;
-import 'package:portfolio/ui/ui.dart' show AppColors, AppTheme, HomePage;
+import 'package:portfolio/presenter/presenter.dart' show AppColors, AppTheme, HomePage;
 
 void main() {
   runApp(const MyApp());

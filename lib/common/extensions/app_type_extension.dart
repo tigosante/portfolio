@@ -1,4 +1,4 @@
-import 'package:portfolio/ui/ui.dart' show AppType;
+import 'package:portfolio/presenter/presenter.dart' show AppType;
 
 extension AppTypeExtension on AppType {
   bool get isMobile => this == AppType.mobile;
