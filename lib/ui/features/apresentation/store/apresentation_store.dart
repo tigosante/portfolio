@@ -1,4 +1,4 @@
-import 'package:portfolio/features/apresentation/store/apresentation_states.dart' show ApresentationStates;
+import 'package:portfolio/ui/features/apresentation/store/apresentation_states.dart' show ApresentationStates;
 
 mixin ApresentationStore<T extends ApresentationStates> {
   Stream<ApresentationStates> get stream;

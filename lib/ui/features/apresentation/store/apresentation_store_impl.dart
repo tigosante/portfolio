@@ -1,8 +1,7 @@
 import 'dart:async';
 
 import 'package:portfolio/domain/domain.dart' show GetSkillsUsecase;
-import 'package:portfolio/features/apresentation/store/apresentation_states.dart';
-import 'package:portfolio/features/apresentation/store/apresentation_store.dart';
+import 'package:portfolio/ui/features/apresentation/store/store.dart';
 
 class ApresentationStoreImpl implements ApresentationStore {
   ApresentationStoreImpl({

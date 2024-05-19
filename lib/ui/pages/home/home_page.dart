@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/common/common.dart';
 import 'package:portfolio/data/data.dart';
 import 'package:portfolio/domain/usecases/get_skills_usecase_impl.dart';
-import 'package:portfolio/features/apresentation/store/apresentation_store_impl.dart';
-import 'package:portfolio/features/features.dart' show ApresentationFeatureWidget, ProjectsFeatureWidget;
+import 'package:portfolio/ui/features/apresentation/store/apresentation_store_impl.dart';
 import 'package:portfolio/ui/ui.dart' show AppBarWidget, TextWidget;
+import 'package:portfolio/ui/ui.dart' show ApresentationFeatureWidget, ProjectsFeatureWidget;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

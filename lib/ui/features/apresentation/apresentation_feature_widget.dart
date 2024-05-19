@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/common/common.dart' show BuildContextExtension;
 import 'package:portfolio/domain/domain.dart' show SkillTypeEntity;
-import 'package:portfolio/features/apresentation/store/apresentation_states.dart';
-import 'package:portfolio/features/apresentation/store/apresentation_store.dart';
-import 'package:portfolio/features/apresentation/ui/molecules/molecules.dart';
+import 'package:portfolio/ui/features/apresentation/store/store.dart';
+import 'package:portfolio/ui/features/apresentation/ui/ui.dart' show ApresentationLoadingWidget;
 import 'package:portfolio/ui/ui.dart' show ContactLinksWidget, SkillSectionWidget, TextWidget, UserPresentationWidget;
 
 class ApresentationFeatureWidget extends StatefulWidget {
