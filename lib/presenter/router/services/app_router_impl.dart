@@ -1,12 +1,14 @@
 import 'package:flutter/widgets.dart' show RouteInformationParser, RouterDelegate;
 import 'package:go_router/go_router.dart';
-import 'package:portfolio/presenter/router/app_router.dart';
-import 'package:portfolio/presenter/router/app_router_enum.dart';
+import 'package:portfolio/presenter/router/services/app_router.dart';
+import 'package:portfolio/presenter/router/services/app_router_enum.dart';
 
 class AppRouterImpl implements AppRouter {
-  factory AppRouterImpl() {
+  factory AppRouterImpl({required GoRouter provider}) {
+    _providerInstance = provider;
     return _instance ?? AppRouterImpl._();
   }
+
   AppRouterImpl._();
 
   static AppRouterImpl? _instance;
@@ -21,9 +23,6 @@ class AppRouterImpl implements AppRouter {
 
   @override
   RouteInformationParser<Object>? get routeInformationParser => _providerInstance.routeInformationParser;
-
-  @override
-  void provider(GoRouter provider) => _providerInstance = provider;
 
   @override
   void back() {

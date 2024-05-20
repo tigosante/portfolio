@@ -44,3 +44,6 @@ app.*.map.json
 
 # Files
 TODO.md
+
+# dirs
+env/*

@@ -19,11 +19,18 @@ class SkillRepositoryImpl implements SkillRepository {
   }) async {
     try {
       final data = await _datasource.getSkills(owner: owner, repo: repo, fileName: fileName);
-      return Right(data.map(SkillModel.fromJson).toList());
+      final skills = <SkillModel>[];
+      data.forEach(
+        (key, value) {
+          final list = (value as List).cast<Map<String, dynamic>>();
+          skills.addAll(list.map((json) => SkillModel.fromJson(json..['type'] = key)));
+        },
+      );
+      return Right(skills);
     } on BaseException catch (exception) {
       return Left(exception);
-    } catch (e, stackTrace) {
-      return Left(UnknowErrorException(message: e.toString(), stackTrace: stackTrace));
+    } catch (exception, stackTrace) {
+      return Left(UnknowErrorException(message: exception.toString(), stackTrace: stackTrace));
     }
   }
 }

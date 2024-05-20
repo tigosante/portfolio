@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/common/common.dart' show BuildContextExtension;
-import 'package:portfolio/domain/domain.dart' show SkillTypeEntity;
+import 'package:portfolio/domain/domain.dart' show SkillEntity;
 import 'package:portfolio/presenter/features/apresentation/store/store.dart';
 import 'package:portfolio/presenter/features/apresentation/ui/ui.dart' show ApresentationLoadingWidget;
 import 'package:portfolio/presenter/presenter.dart'
-    show ContactLinksWidget, SkillSectionWidget, TextWidget, UserPresentationWidget;
+    show ContactLinksWidget, SkillWidget, TextWidget, UserPresentationWidget;
 
 class ApresentationFeatureWidget extends StatefulWidget {
   const ApresentationFeatureWidget({
@@ -19,7 +19,7 @@ class ApresentationFeatureWidget extends StatefulWidget {
 }
 
 class _ApresentationFeatureWidgetState extends State<ApresentationFeatureWidget> {
-  final _skillList = <SkillTypeEntity>[];
+  final _skillList = <SkillEntity>[];
 
   @override
   void initState() {
@@ -38,7 +38,7 @@ class _ApresentationFeatureWidgetState extends State<ApresentationFeatureWidget>
     final horizontalPadding = context.dimensions.paddingExtraLarge;
     return Column(
       mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Wrap(
           spacing: horizontalPadding,
@@ -73,18 +73,21 @@ class _ApresentationFeatureWidgetState extends State<ApresentationFeatureWidget>
 }
 
 class _SectionListWidget extends StatelessWidget {
-  const _SectionListWidget({required List<SkillTypeEntity> data}) : _data = data;
+  const _SectionListWidget({required List<SkillEntity> data}) : _data = data;
 
-  final List<SkillTypeEntity> _data;
+  final List<SkillEntity> _data;
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      spacing: context.dimensions.paddingLarge,
-      runSpacing: context.dimensions.paddingLarge,
-      children: [
-        for (final section in _data) SkillSectionWidget(data: section),
-      ],
+    return Align(
+      alignment: Alignment.topLeft,
+      child: Wrap(
+        runAlignment: WrapAlignment.spaceBetween,
+        spacing: context.dimensions.paddingMedium,
+        runSpacing: context.dimensions.paddingMedium,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: _data.map(SkillWidget.new).toList(),
+      ),
     );
   }
 }

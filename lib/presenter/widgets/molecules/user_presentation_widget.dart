@@ -13,10 +13,12 @@ class UserPresentationWidget extends StatelessWidget {
       children: [
         TextWidget(
           'Oi, sou ${context.env.userName.split(" ").first}!',
+          maxLines: 5,
           style: context.textTheme.displayMedium.copyWith(color: context.colors.primary),
         ),
         TextWidget(
           'Atuo como dev full-stack especiliazado em mobile.',
+          maxLines: 5,
           style: context.textTheme.headlineSmall.copyWith(color: context.colors.secondary),
         ),
       ],

@@ -27,26 +27,30 @@ class InfosLinkWidget extends StatelessWidget {
       children: [
         AvatarCircleWidget(iconType: _iconType),
         SizedBox(width: context.dimensions.paddingSmall),
-        Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TextWidget(
-              _title,
-              style: context.textTheme.bodyLarge.copyWith(color: context.colors.primary),
-            ),
-            if (_link.isURL())
+        Flexible(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
               TextWidget(
-                _link,
-                style: context.textTheme.bodyLarge.copyWith(color: context.colors.link),
-              )
-            else
-              TextEmailWidget(
-                _link,
-                textReplacement: _textReplacement,
-                style: context.textTheme.bodyLarge.copyWith(color: context.colors.link),
+                _title,
+                maxLines: 5,
+                style: context.textTheme.bodyLarge.copyWith(color: context.colors.primary),
               ),
-          ],
+              if (_link.isURL())
+                TextWidget(
+                  _link,
+                  maxLines: 5,
+                  style: context.textTheme.bodyLarge.copyWith(color: context.colors.link),
+                )
+              else
+                TextEmailWidget(
+                  _link,
+                  textReplacement: _textReplacement,
+                  style: context.textTheme.bodyLarge.copyWith(color: context.colors.link),
+                ),
+            ],
+          ),
         ),
       ],
     );

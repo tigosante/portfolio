@@ -1,4 +1,4 @@
-import 'package:portfolio/domain/domain.dart' show SkillTypeEntity;
+import 'package:portfolio/domain/domain.dart' show SkillEntity;
 
 abstract class ApresentationStates {}
 
@@ -9,7 +9,7 @@ class ApresentationLoadingState extends ApresentationStates {}
 class ApresentationSuccessState extends ApresentationStates {
   ApresentationSuccessState(this.data);
 
-  final List<SkillTypeEntity> data;
+  final List<SkillEntity> data;
 }
 
 class ApresentationErrorState extends ApresentationStates {

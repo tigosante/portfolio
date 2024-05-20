@@ -30,6 +30,7 @@ class TextEmailWidget extends StatelessWidget {
         onTap: _email.launchLink,
         child: Text(
           _textReplacement ?? _email,
+          maxLines: 5,
           softWrap: true,
           textAlign: _textAlign,
           style: (_style ?? _textType.getStyle(context)).copyWith(

@@ -16,10 +16,16 @@ class EnvironmentImpl implements Environment {
   String get userEmail => const String.fromEnvironment('USER_EMAIL');
 
   @override
-  String get githubUser => const String.fromEnvironment('GETHUB_USER');
+  String get githubUser => const String.fromEnvironment('GITHUB_USER');
 
   @override
   String get skillsFileName => const String.fromEnvironment('SKILLS_FILE_NAME');
+
+  @override
+  String get githubBaseUrl => const String.fromEnvironment('GITHUB_BASE_URL');
+
+  @override
+  String get githubAuthToken => const String.fromEnvironment('GITHUB_AUTH_TOKEN');
 
   @override
   String get linkedInProfileUrl => const String.fromEnvironment('LINKEDIN_PROFILE_URL');

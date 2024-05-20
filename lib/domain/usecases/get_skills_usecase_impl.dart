@@ -1,6 +1,6 @@
 import 'package:either_dart/either.dart';
 import 'package:portfolio/common/common.dart' show BaseException;
-import 'package:portfolio/domain/domain.dart' show SkillRepository, SkillTypeEntity;
+import 'package:portfolio/domain/domain.dart' show SkillEntity, SkillRepository;
 import 'package:portfolio/domain/usecases/get_skills_usecase.dart';
 
 class GetSkillsUsecaseImpl implements GetSkillsUsecase {
@@ -11,21 +11,11 @@ class GetSkillsUsecaseImpl implements GetSkillsUsecase {
   final SkillRepository _repository;
 
   @override
-  Future<Either<BaseException, List<SkillTypeEntity>>> call({
+  Future<Either<BaseException, List<SkillEntity>>> call({
     required String owner,
     required String repo,
     required String fileName,
   }) async {
-    final either = await _repository.getSkills(owner: owner, repo: repo, fileName: fileName);
-    return either.fold(
-      Left.new,
-      (skillList) {
-        final types = <String, SkillTypeEntity>{};
-        for (final skill in skillList) {
-          types[skill.type] = (types[skill.type] ?? SkillTypeEntity(title: skill.type, skills: []))..skills.add(skill);
-        }
-        return Right(types.values.toList());
-      },
-    );
+    return _repository.getSkills(owner: owner, repo: repo, fileName: fileName);
   }
 }
