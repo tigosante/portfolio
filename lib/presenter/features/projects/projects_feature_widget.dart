@@ -1,29 +1,60 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/common/common.dart' show BuildContextExtension;
-import 'package:portfolio/presenter/presenter.dart' show TextWidget;
+import 'package:portfolio/presenter/features/projects/ui/ui.dart';
 
 class ProjectsFeatureWidget extends StatelessWidget {
   const ProjectsFeatureWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox();
-    return Container(
-      padding: EdgeInsets.all(context.dimensions.paddingMedium),
-      constraints: BoxConstraints(maxWidth: context.dimensions.screenMaxWidth),
-      child: Column(
-        children: [
-          Text(
-            'Projects',
-            style: context.textTheme.displayMedium.copyWith(color: context.colors.primary),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(left: context.dimensions.paddingExtraLarge * 3),
+          child: const TitleWidget(),
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          physics: const BouncingScrollPhysics(),
+          padding: EdgeInsets.only(
+            top: context.dimensions.paddingMedium,
+            left: context.dimensions.paddingExtraLarge * 2.75,
+            right: context.dimensions.paddingMedium,
+            bottom: context.dimensions.paddingMedium,
           ),
-          SizedBox(height: context.dimensions.paddingMedium),
-          TextWidget(
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-            style: context.textTheme.bodyLarge.copyWith(color: context.colors.secondary),
+          child: Row(
+            children: [
+              RectangleAspectRatioWidget(
+                padding: context.dimensions.paddingMedium,
+                imageUrl:
+                    'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-40-ipad-pro-202405?wid=800&hei=1000&fmt=p-jpg&qlt=95&.v=1713308272816',
+              ),
+              RectangleAspectRatioWidget(
+                padding: context.dimensions.paddingMedium,
+                imageUrl:
+                    'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-40-ipad-air-202405?wid=800&hei=1000&fmt=jpeg&qlt=90&.v=1713308272877',
+              ),
+              RectangleAspectRatioWidget(
+                padding: context.dimensions.paddingMedium,
+                imageUrl:
+                    'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-40-iphone-15-pro-202309?wid=800&hei=1000&fmt=p-jpg&qlt=95&.v=1692910040844',
+              ),
+              RectangleAspectRatioWidget(
+                padding: context.dimensions.paddingMedium,
+                imageUrl:
+                    'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-40-ipad-202310_GEO_BR?wid=800&hei=1000&fmt=p-jpg&qlt=95&.v=1696875323691',
+              ),
+              RectangleAspectRatioWidget(
+                padding: context.dimensions.paddingMedium,
+                imageUrl:
+                    'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-40-watch-s9-202309_GEO_BR?wid=800&hei=1000&fmt=jpeg&qlt=90&.v=1693501298681',
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

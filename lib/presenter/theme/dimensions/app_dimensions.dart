@@ -12,7 +12,6 @@ class AppDimensions {
     this.mediumValue = 16.0,
     this.largeValue = 24.0,
     this.extraLargeValue = 32.0,
-    this.screenMaxWidth = 1250,
   });
 
   final AppType appType;
@@ -22,7 +21,6 @@ class AppDimensions {
   final double mediumValue;
   final double largeValue;
   final double extraLargeValue;
-  final double screenMaxWidth;
 
   double get borderRadiusNone => noneValue;
   double get borderRadiusSmall => smallValue;

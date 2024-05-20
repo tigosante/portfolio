@@ -22,22 +22,45 @@ class IconsWidget extends StatelessWidget {
     required IconType iconType,
     super.key,
     Color? color,
-  })  : _color = color,
+    double? size,
+  })  : _size = size,
+        _color = color,
         _iconType = iconType;
 
+  final double? _size;
   final Color? _color;
   final IconType _iconType;
 
-  factory IconsWidget.noImage({Color? color}) => IconsWidget(iconType: IconType.noImage, color: color);
-  factory IconsWidget.profile({Color? color}) => IconsWidget(iconType: IconType.profile, color: color);
-  factory IconsWidget.link({Color? color}) => IconsWidget(iconType: IconType.profile, color: color);
-  factory IconsWidget.arrowRight({Color? color}) => IconsWidget(iconType: IconType.arrowRight, color: color);
+  factory IconsWidget.noImage({Color? color, double? size}) => IconsWidget(
+        iconType: IconType.noImage,
+        size: size,
+        color: color,
+      );
+
+  factory IconsWidget.profile({Color? color, double? size}) => IconsWidget(
+        iconType: IconType.profile,
+        size: size,
+        color: color,
+      );
+
+  factory IconsWidget.link({Color? color, double? size}) => IconsWidget(
+        iconType: IconType.profile,
+        size: size,
+        color: color,
+      );
+
+  factory IconsWidget.arrowRight({Color? color, double? size}) => IconsWidget(
+        iconType: IconType.arrowRight,
+        size: size,
+        color: color,
+      );
 
   @override
   Widget build(BuildContext context) {
     return Icon(
       _iconType.getIcon,
       color: _color,
+      size: _size,
     );
   }
 }

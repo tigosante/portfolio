@@ -27,9 +27,6 @@ class AppDimensionsExtension extends ThemeExtension<AppDimensionsExtension> impl
   double get extraLargeValue => _dimensions.extraLargeValue;
 
   @override
-  double get screenMaxWidth => _dimensions.screenMaxWidth;
-
-  @override
   double get borderRadiusNone => _dimensions.borderRadiusNone;
 
   @override
