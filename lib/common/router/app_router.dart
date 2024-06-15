@@ -8,7 +8,7 @@ mixin AppRouter {
   void back();
   void navigate(
     AppRouterEnum route, {
-    Map<String, String?>? pathParams,
+    Map<String, String> pathParams,
   });
   void replaceAll(AppRouterEnum route);
 }

@@ -13,7 +13,7 @@ class CommonModule extends Module {
         Bind(
           export: true,
           isLazy: false,
-          (_) => AppRouterImpl(provider: (Modular..setInitialRoute(AppRouterEnum.root.routePath)).to),
+          (_) => AppRouterImpl(provider: (Modular..setInitialRoute(AppRouterEnum.home.routePath)).to),
         ),
       ];
 }

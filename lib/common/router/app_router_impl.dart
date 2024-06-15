@@ -1,8 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart' show IModularNavigator, Modular;
 import 'package:portfolio/common/common.dart';
-import 'package:portfolio/common/router/app_router_params.dart';
-import 'package:portfolio/common/router/exceptions/exceptions.dart';
 import 'package:portfolio/common/router/router.dart';
 
 class AppRouterImpl implements AppRouter {
@@ -25,10 +23,10 @@ class AppRouterImpl implements AppRouter {
   }
 
   @override
-  void navigate(AppRouterEnum route, {Map<String, String?>? pathParams}) {
+  void navigate(AppRouterEnum route, {Map<String, String> pathParams = const {}}) {
     try {
-      final routeFix = _validatePathParams(_fixRoutePath(route.path), route, route.params, pathParams);
-      _provider.pushNamed(routeFix).catchError((e) async => _provider.pushNamed('.$routeFix'));
+      final routePath = route.routePathWithParams(pathParams);
+      _provider.pushNamed(routePath).catchError((e) async => _provider.pushNamed('.$routePath'));
     } catch (error) {
       debugPrint(error.toString());
     }
@@ -39,29 +37,5 @@ class AppRouterImpl implements AppRouter {
     _provider
       ..popUntil((_) => false)
       ..pushReplacementNamed(route.routePath);
-  }
-
-  String _validatePathParams(
-    String routePath,
-    AppRouterEnum route,
-    AppRouterParams? routeParams,
-    Map<String, String?>? pathParams,
-  ) {
-    if (pathParams != null && routeParams == null && !routeParams!.havePathParms) {
-      throw RouteDontHavePathParamsAppRouterException(routePath: route.path);
-    } else if (routeParams != null &&
-        routeParams.havePathParms &&
-        routeParams.validatePathParams(pathParams?.keys.toList(), route)) {
-      final values = (pathParams?.values.toList() ?? [])..removeWhere((element) => element == null);
-      return '$routePath${routeParams.getPathParams(values.cast())}';
-    }
-
-    return routePath;
-  }
-
-  String _fixRoutePath(String route) {
-    final path = route.startsWith('/') ? route : '/$route';
-    final pathFixed = path.endsWith('/') ? path : '$path/';
-    return '.$pathFixed';
   }
 }
