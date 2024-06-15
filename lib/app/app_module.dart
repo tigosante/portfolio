@@ -6,15 +6,15 @@ import 'package:portfolio/features/features.dart';
 
 class AppModule extends Module {
   @override
-  List<Module> get imports => [
-        CommonModule(),
-        DataModule(),
-        DomainModule(),
-      ];
+  List<Module> get imports => [CommonModule(), DataModule(), DomainModule()];
 
   @override
   List<ModularRoute> get routes => [
-        RedirectRoute('/', to: AppRouterEnum.home.routePath),
         ModuleRoute<HomeModule>(HomeModule.routePath, module: HomeModule()),
+        WildcardRoute<dynamic>(
+          child: (context, _) => NotFoundPage(
+            onRedirectPressed: () => context.read<AppRouter>().replaceAll(AppRouterEnum.home),
+          ),
+        ),
       ];
 }
