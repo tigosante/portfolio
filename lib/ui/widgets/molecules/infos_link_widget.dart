@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/common/common.dart' show BuildContextExtension, ColorSchemeExtension, StringExtension;
-import 'package:portfolio/ui/ui.dart' show AvatarCircleWidget, IconType, TextEmailWidget, TextWidget;
+import 'package:portfolio/common/common.dart' show StringExtension;
+import 'package:portfolio/ui/ui.dart';
 
 class InfosLinkWidget extends StatelessWidget {
   const InfosLinkWidget({

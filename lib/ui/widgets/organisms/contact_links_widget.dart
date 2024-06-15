@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/common/common.dart' show BuildContextExtension;
+import 'package:portfolio/ui/ui.dart' show BuildContextExtension;
 import 'package:portfolio/ui/ui.dart' show IconType, InfosLinkWidget;
 
 class ContactLinksWidget extends StatelessWidget {

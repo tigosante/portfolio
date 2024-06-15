@@ -1,4 +1,3 @@
-export 'features/features.dart';
-export 'pages/pages.dart';
+export 'extensions/extensions.dart';
 export 'theme/theme.dart';
 export 'widgets/widgets.dart';

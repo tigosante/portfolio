@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart' show BuildContext, TextStyle;
-import 'package:portfolio/common/common.dart' show BuildContextExtension;
+import 'package:portfolio/ui/ui.dart' show BuildContextExtension;
 
 enum AppTextTypeEnum {
   displayLarge,

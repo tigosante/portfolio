@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart' show GetIt;
-import 'package:portfolio/application.dart';
-import 'package:portfolio/common/injector/app_injector_impl.dart';
-import 'package:portfolio/common/injector/injector_handler.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:portfolio/app/app.dart';
+import 'package:url_strategy/url_strategy.dart';
 
-final _getIt = GetIt.instance;
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setPathUrlStrategy();
   runApp(
-    Application(
-      router: injectorHandler(AppInjectorImpl(provider: _getIt)).get(),
+    ModularApp(
+      module: AppModule(),
+      child: AppWidget(
+        routerDelegate: Modular.routerDelegate,
+        routeInformationParser: Modular.routeInformationParser,
+      ),
     ),
   );
 }

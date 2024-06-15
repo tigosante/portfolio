@@ -10,9 +10,9 @@ extension StringExtension on String {
     return Color(int.parse('0xFF$hexColor'));
   }
 
-  bool isEmail() => contains('@') && contains('.') && !contains(' ');
+  bool isEmail() => RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(trim());
 
-  bool isURL() => trim().startsWith('https://');
+  bool isURL() => RegExp(r'^(http|https):\/\/([\w.]+\/?)\S*$').hasMatch(trim());
 
   void launchLink() {
     late Uri uri;

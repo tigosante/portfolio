@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:portfolio/common/common.dart'
-    show BrightnessExtension, BuildContextExtension, ColorSchemeExtension, StringExtension;
+import 'package:portfolio/common/common.dart' show StringExtension;
 import 'package:portfolio/domain/domain.dart' show SkillEntity;
-import 'package:portfolio/ui/ui.dart' show CircledIconWidget, TextWidget;
+import 'package:portfolio/ui/ui.dart';
 
 // ignore: must_be_immutable
 class SkillWidget extends StatefulWidget {

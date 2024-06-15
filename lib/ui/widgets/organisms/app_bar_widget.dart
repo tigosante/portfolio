@@ -1,7 +1,7 @@
 import 'dart:ui' show ImageFilter;
 
 import 'package:flutter/material.dart';
-import 'package:portfolio/common/common.dart' show BuildContextExtension;
+import 'package:portfolio/ui/ui.dart' show BuildContextExtension;
 
 class AppBarWidget extends PreferredSize {
   const AppBarWidget({
