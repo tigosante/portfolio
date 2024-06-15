@@ -1,5 +1,4 @@
-export 'avatar_circle_widget.dart';
-export 'button_widget.dart';
-export 'infos_link_widget.dart';
-export 'skill_widget.dart';
-export 'user_presentation_widget.dart';
+export 'avatar_circle_widget_molecule.dart';
+export 'button_widget_molecule.dart';
+export 'skill_widget_molecule.dart';
+export 'user_presentation_widget_molecule.dart';

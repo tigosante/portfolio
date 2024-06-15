@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/ui/ui.dart' show BuildContextExtension;
 import 'package:skeletonizer/skeletonizer.dart';
 
-class SkeletonLoadingWidget extends StatelessWidget {
-  const SkeletonLoadingWidget({
+class SkeletonLoadingWidgetAtom extends StatelessWidget {
+  const SkeletonLoadingWidgetAtom({
     required this.child,
     super.key,
   });

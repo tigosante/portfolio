@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
         // TODO: corrigir
         // _appBar,
         // ApresentationFeatureWidget(store: widget._skillStore),
-        const ProjectsWidget(),
+        const ProjectsWidgetTemplate(),
       ];
 
   @override

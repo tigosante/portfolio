@@ -5,8 +5,8 @@ import 'package:portfolio/domain/domain.dart' show SkillEntity;
 import 'package:portfolio/ui/ui.dart';
 
 // ignore: must_be_immutable
-class SkillWidget extends StatefulWidget {
-  const SkillWidget(
+class SkillWidgetMolecule extends StatefulWidget {
+  const SkillWidgetMolecule(
     SkillEntity data, {
     super.key,
   }) : _data = data;
@@ -14,10 +14,10 @@ class SkillWidget extends StatefulWidget {
   final SkillEntity _data;
 
   @override
-  State<SkillWidget> createState() => _SkillWidgetState();
+  State<SkillWidgetMolecule> createState() => _SkillWidgetMoleculeState();
 }
 
-class _SkillWidgetState extends State<SkillWidget> {
+class _SkillWidgetMoleculeState extends State<SkillWidgetMolecule> {
   bool _showHover = false;
 
   @override
@@ -49,7 +49,7 @@ class _SkillWidgetState extends State<SkillWidget> {
                 crossAxisAlignment: WrapCrossAlignment.center,
                 alignment: widget._data.showTitle ? WrapAlignment.spaceBetween : WrapAlignment.center,
                 children: [
-                  CircledIconWidget(
+                  CircledIconWidgetAtom(
                     color: circleLogoColor,
                     borderColor: context.colorScheme.transparent,
                     padding: EdgeInsets.all(context.measuries.paddingSmall * 1.2),
@@ -88,7 +88,7 @@ class _TextHoverWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textColor = context.colorScheme.primary;
-    final subTitle = TextWidget(
+    final subTitle = TextWidgetAtom(
       _data.startWork,
       style: context.textTheme.bodySmall.copyWith(color: textColor, fontWeight: FontWeight.w500),
     );
@@ -97,7 +97,7 @@ class _TextHoverWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         if (_useSeparator) ...[
-          TextWidget('•', style: context.textTheme.bodySmall.copyWith(color: textColor)),
+          TextWidgetAtom('•', style: context.textTheme.bodySmall.copyWith(color: textColor)),
           SizedBox(width: context.measuries.paddingSmall),
         ],
         if (_showTitle)
@@ -106,7 +106,7 @@ class _TextHoverWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: _useSeparator ? CrossAxisAlignment.start : CrossAxisAlignment.center,
             children: [
-              TextWidget(
+              TextWidgetAtom(
                 _data.name,
                 style: context.textTheme.bodyMedium.copyWith(color: textColor, fontWeight: FontWeight.bold),
               ),

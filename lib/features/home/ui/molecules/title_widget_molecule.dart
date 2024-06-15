@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/ui/ui.dart' show BuildContextExtension;
-import 'package:portfolio/ui/ui.dart' show TextWidget;
+import 'package:portfolio/ui/ui.dart' show BuildContextExtension, TextWidgetAtom;
 
-class TitleWidget extends StatelessWidget {
-  const TitleWidget({super.key});
+class TitleWidgetMolecule extends StatelessWidget {
+  const TitleWidgetMolecule({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        TextWidget(
+        TextWidgetAtom(
           'Projetos.',
           style: context.textTheme.titleLarge,
         ),
         SizedBox(width: context.measuries.paddingSmall / 2),
-        TextWidget(
+        TextWidgetAtom(
           'Vejo os detalhes.',
           style: context.textTheme.titleLarge.copyWith(color: context.colorScheme.secondary),
         ),

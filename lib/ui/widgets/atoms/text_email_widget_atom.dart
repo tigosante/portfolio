@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/common/common.dart';
 import 'package:portfolio/ui/ui.dart' show AppTextTypeEnum;
 
-class TextEmailWidget extends StatelessWidget {
-  const TextEmailWidget(
+class TextEmailWidgetAtom extends StatelessWidget {
+  const TextEmailWidgetAtom(
     String email, {
     super.key,
     TextAlign textAlign = TextAlign.left,

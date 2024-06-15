@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/ui/ui.dart';
 
-class RectangleAspectRatioWidget extends StatefulWidget {
-  const RectangleAspectRatioWidget({
+class RectangleAspectRatioWidgetMolecule extends StatefulWidget {
+  const RectangleAspectRatioWidgetMolecule({
     required double padding,
     required String imageUrl,
     super.key,
@@ -13,10 +13,10 @@ class RectangleAspectRatioWidget extends StatefulWidget {
   final String _imageUrl;
 
   @override
-  State<RectangleAspectRatioWidget> createState() => _RectangleAspectRatioWidgetState();
+  State<RectangleAspectRatioWidgetMolecule> createState() => _RectangleAspectRatioWidgetMoleculeState();
 }
 
-class _RectangleAspectRatioWidgetState extends State<RectangleAspectRatioWidget> {
+class _RectangleAspectRatioWidgetMoleculeState extends State<RectangleAspectRatioWidgetMolecule> {
   void Function(void Function())? _state;
 
   bool _isHover = false;
@@ -79,7 +79,7 @@ class _RectangleAspectRatioWidgetState extends State<RectangleAspectRatioWidget>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TextWidget(
+                  TextWidgetAtom(
                     'Repository Name'.toUpperCase(),
                     style: context.textTheme.bodyLarge.copyWith(
                       fontWeight: FontWeight.w500,
@@ -87,13 +87,13 @@ class _RectangleAspectRatioWidgetState extends State<RectangleAspectRatioWidget>
                     ),
                   ),
                   SizedBox(height: context.measuries.paddingSmall),
-                  TextWidget(
+                  TextWidgetAtom(
                     'Project purpose, brief description.',
                     maxLines: 3,
                     style: context.textTheme.titleLarge.copyWith(color: context.colorScheme.secondary),
                   ),
                   SizedBox(height: context.measuries.paddingSmall),
-                  TextWidget(
+                  TextWidgetAtom(
                     'Frameworks and languages ​​used.',
                     maxLines: 2,
                     style: context.textTheme.bodyLarge.copyWith(

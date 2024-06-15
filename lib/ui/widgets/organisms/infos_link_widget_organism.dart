@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/common/common.dart' show StringExtension;
 import 'package:portfolio/ui/ui.dart';
 
-class InfosLinkWidget extends StatelessWidget {
-  const InfosLinkWidget({
+class InfosLinkWidgetOrganism extends StatelessWidget {
+  const InfosLinkWidgetOrganism({
     required String title,
     required String link,
     required IconType iconType,
@@ -25,26 +25,26 @@ class InfosLinkWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AvatarCircleWidget(iconType: _iconType),
+        AvatarCircleWidgetMolecule(iconType: _iconType),
         SizedBox(width: context.measuries.paddingSmall),
         Flexible(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextWidget(
+              TextWidgetAtom(
                 _title,
                 maxLines: 5,
                 style: context.textTheme.bodyLarge.copyWith(color: context.colorScheme.primary),
               ),
               if (_link.isURL())
-                TextWidget(
+                TextWidgetAtom(
                   _link,
                   maxLines: 5,
                   style: context.textTheme.bodyLarge.copyWith(color: context.colorScheme.link),
                 )
               else
-                TextEmailWidget(
+                TextEmailWidgetAtom(
                   _link,
                   textReplacement: _textReplacement,
                   style: context.textTheme.bodyLarge.copyWith(color: context.colorScheme.link),

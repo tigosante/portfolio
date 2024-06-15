@@ -3,8 +3,8 @@ import 'dart:ui' show ImageFilter;
 import 'package:flutter/material.dart';
 import 'package:portfolio/ui/ui.dart' show BuildContextExtension;
 
-class AppBarWidget extends PreferredSize {
-  const AppBarWidget({
+class AppBarWidgetOrganism extends PreferredSize {
+  const AppBarWidgetOrganism({
     required Widget child,
     super.key,
   })  : _child = child,

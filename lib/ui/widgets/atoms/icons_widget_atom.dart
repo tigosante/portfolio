@@ -17,8 +17,8 @@ enum IconType {
   }
 }
 
-class IconsWidget extends StatelessWidget {
-  const IconsWidget({
+class IconsWidgetAtom extends StatelessWidget {
+  const IconsWidgetAtom({
     required IconType iconType,
     super.key,
     Color? color,
@@ -31,25 +31,25 @@ class IconsWidget extends StatelessWidget {
   final Color? _color;
   final IconType _iconType;
 
-  factory IconsWidget.noImage({Color? color, double? size}) => IconsWidget(
+  factory IconsWidgetAtom.noImage({Color? color, double? size}) => IconsWidgetAtom(
         iconType: IconType.noImage,
         size: size,
         color: color,
       );
 
-  factory IconsWidget.profile({Color? color, double? size}) => IconsWidget(
+  factory IconsWidgetAtom.profile({Color? color, double? size}) => IconsWidgetAtom(
         iconType: IconType.profile,
         size: size,
         color: color,
       );
 
-  factory IconsWidget.link({Color? color, double? size}) => IconsWidget(
+  factory IconsWidgetAtom.link({Color? color, double? size}) => IconsWidgetAtom(
         iconType: IconType.profile,
         size: size,
         color: color,
       );
 
-  factory IconsWidget.arrowRight({Color? color, double? size}) => IconsWidget(
+  factory IconsWidgetAtom.arrowRight({Color? color, double? size}) => IconsWidgetAtom(
         iconType: IconType.arrowRight,
         size: size,
         color: color,

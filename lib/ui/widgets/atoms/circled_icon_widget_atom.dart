@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/ui/ui.dart' show BuildContextExtension, ColorSchemeExtension;
 
-class CircledIconWidget extends StatelessWidget {
-  const CircledIconWidget({
+class CircledIconWidgetAtom extends StatelessWidget {
+  const CircledIconWidgetAtom({
     required this.child,
     double size = 40,
     Color? color,

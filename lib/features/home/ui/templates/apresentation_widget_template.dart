@@ -4,8 +4,8 @@ import 'package:portfolio/features/home/stores/stores.dart';
 import 'package:portfolio/features/home/ui/ui.dart';
 import 'package:portfolio/ui/ui.dart';
 
-class ApresentationWidget extends StatefulWidget {
-  const ApresentationWidget({
+class ApresentationWidgetTemplate extends StatefulWidget {
+  const ApresentationWidgetTemplate({
     required ApresentationStore store,
     super.key,
   }) : _store = store;
@@ -13,10 +13,10 @@ class ApresentationWidget extends StatefulWidget {
   final ApresentationStore _store;
 
   @override
-  State<ApresentationWidget> createState() => _ApresentationWidgetState();
+  State<ApresentationWidgetTemplate> createState() => _ApresentationWidgetTemplateState();
 }
 
-class _ApresentationWidgetState extends State<ApresentationWidget> {
+class _ApresentationWidgetTemplateState extends State<ApresentationWidgetTemplate> {
   final _skillList = <SkillEntity>[];
 
   @override
@@ -43,8 +43,8 @@ class _ApresentationWidgetState extends State<ApresentationWidget> {
           runSpacing: horizontalPadding,
           alignment: WrapAlignment.spaceBetween,
           children: const [
-            UserPresentationWidget(),
-            ContactLinksWidget(),
+            UserPresentationWidgetMolecule(),
+            ContactLinksWidgetOrganism(),
           ],
         ),
         SizedBox(height: context.measuries.paddingExtraLarge * 3),
@@ -55,13 +55,13 @@ class _ApresentationWidgetState extends State<ApresentationWidget> {
             stream: widget._store.stream,
             builder: (context, snapshot) {
               return switch (snapshot.data) {
-                ApresentationErrorState(message: final code) => TextWidget(code),
+                ApresentationErrorState(message: final code) => TextWidgetAtom(code),
                 ApresentationSuccessState(data: final data) => _SectionListWidget(
                     data: _skillList
                       ..clear()
                       ..addAll(data),
                   ),
-                ApresentationInitialState() || ApresentationLoadingState() || _ => const ApresentationLoadingWidget(),
+                ApresentationInitialState() || ApresentationLoadingState() || _ => const ApresentationLoadingMolecule(),
               };
             },
           ),
@@ -84,7 +84,7 @@ class _SectionListWidget extends StatelessWidget {
         spacing: context.measuries.paddingMedium,
         runSpacing: context.measuries.paddingMedium,
         crossAxisAlignment: WrapCrossAlignment.center,
-        children: _data.map(SkillWidget.new).toList(),
+        children: _data.map(SkillWidgetMolecule.new).toList(),
       ),
     );
   }

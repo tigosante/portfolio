@@ -8,8 +8,8 @@ enum ButtonType {
   secondarySmall,
 }
 
-class ButtonWidget extends StatefulWidget {
-  const ButtonWidget({
+class ButtonWidgetMolecule extends StatefulWidget {
+  const ButtonWidgetMolecule({
     required String label,
     required ButtonType type,
     required VoidCallback onPressed,
@@ -22,27 +22,27 @@ class ButtonWidget extends StatefulWidget {
   final ButtonType _type;
   final VoidCallback _onPressed;
 
-  factory ButtonWidget.primary({required String label, required VoidCallback onPressed}) {
-    return ButtonWidget(label: label, onPressed: onPressed, type: ButtonType.primary);
+  factory ButtonWidgetMolecule.primary({required String label, required VoidCallback onPressed}) {
+    return ButtonWidgetMolecule(label: label, onPressed: onPressed, type: ButtonType.primary);
   }
 
-  factory ButtonWidget.secondary({required String label, required VoidCallback onPressed}) {
-    return ButtonWidget(label: label, onPressed: onPressed, type: ButtonType.secondary);
+  factory ButtonWidgetMolecule.secondary({required String label, required VoidCallback onPressed}) {
+    return ButtonWidgetMolecule(label: label, onPressed: onPressed, type: ButtonType.secondary);
   }
 
-  factory ButtonWidget.primarySmall({required String label, required VoidCallback onPressed}) {
-    return ButtonWidget(label: label, onPressed: onPressed, type: ButtonType.primarySmall);
+  factory ButtonWidgetMolecule.primarySmall({required String label, required VoidCallback onPressed}) {
+    return ButtonWidgetMolecule(label: label, onPressed: onPressed, type: ButtonType.primarySmall);
   }
 
-  factory ButtonWidget.secondarySmall({required String label, required VoidCallback onPressed}) {
-    return ButtonWidget(label: label, onPressed: onPressed, type: ButtonType.secondarySmall);
+  factory ButtonWidgetMolecule.secondarySmall({required String label, required VoidCallback onPressed}) {
+    return ButtonWidgetMolecule(label: label, onPressed: onPressed, type: ButtonType.secondarySmall);
   }
 
   @override
-  State<ButtonWidget> createState() => _ButtonWidgetState();
+  State<ButtonWidgetMolecule> createState() => _ButtonWidgetState();
 }
 
-class _ButtonWidgetState extends State<ButtonWidget> {
+class _ButtonWidgetState extends State<ButtonWidgetMolecule> {
   Color get _textColor {
     return switch (widget._type) {
       ButtonType.primary || ButtonType.primarySmall => context.colorScheme.onSecondary,
@@ -71,7 +71,7 @@ class _ButtonWidgetState extends State<ButtonWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final labelWidget = TextWidget(
+    final labelWidget = TextWidgetAtom(
       widget._label,
       style: context.textTheme.labelLarge.copyWith(color: _textColor),
     );

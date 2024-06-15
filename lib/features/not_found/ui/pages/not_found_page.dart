@@ -16,12 +16,12 @@ class NotFoundPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextWidget(
+            TextWidgetAtom(
               'Página não encontrada!',
               style: context.textTheme.titleLarge,
             ),
             SizedBox(height: context.measuries.paddingLarge),
-            ButtonWidget.primary(
+            ButtonWidgetMolecule.primary(
               label: 'Início',
               onPressed: _onRedirectPressed,
             ),

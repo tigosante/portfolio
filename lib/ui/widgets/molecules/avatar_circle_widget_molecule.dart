@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:portfolio/ui/ui.dart' show BuildContextExtension;
-import 'package:portfolio/ui/ui.dart' show CircledIconWidget, IconType, IconsWidget;
+import 'package:portfolio/ui/ui.dart' show CircledIconWidgetAtom, IconType, IconsWidgetAtom;
 
-class AvatarCircleWidget extends StatelessWidget {
-  const AvatarCircleWidget({
+class AvatarCircleWidgetMolecule extends StatelessWidget {
+  const AvatarCircleWidgetMolecule({
     required IconType iconType,
     super.key,
   }) : _iconType = iconType;
@@ -13,8 +13,8 @@ class AvatarCircleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CircledIconWidget(
-      child: IconsWidget(
+    return CircledIconWidgetAtom(
+      child: IconsWidgetAtom(
         iconType: _iconType,
         color: context.colorScheme.primary,
       ),

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/common/common.dart';
 import 'package:portfolio/ui/ui.dart' show AppTextTypeEnum;
 
-class TextWidget extends StatelessWidget {
-  const TextWidget(
+class TextWidgetAtom extends StatelessWidget {
+  const TextWidgetAtom(
     String data, {
     super.key,
     TextAlign textAlign = TextAlign.left,
