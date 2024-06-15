@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/common/common.dart' show BuildContextExtension;
 import 'package:portfolio/ui/ui.dart';
 
-// ignore: must_be_immutable
-class RectangleAspectRatioWidget extends StatelessWidget {
-  RectangleAspectRatioWidget({
+class RectangleAspectRatioWidget extends StatefulWidget {
+  const RectangleAspectRatioWidget({
     required double padding,
     required String imageUrl,
     super.key,
@@ -14,14 +12,20 @@ class RectangleAspectRatioWidget extends StatelessWidget {
   final double _padding;
   final String _imageUrl;
 
+  @override
+  State<RectangleAspectRatioWidget> createState() => _RectangleAspectRatioWidgetState();
+}
+
+class _RectangleAspectRatioWidgetState extends State<RectangleAspectRatioWidget> {
   void Function(void Function())? _state;
+
   bool _isHover = false;
 
   @override
   Widget build(BuildContext context) {
     const cardSize = 400.0;
     const cardExpandedSize = cardSize + 8;
-    final cardBiggerSize = cardSize + _padding;
+    final cardBiggerSize = cardSize + widget._padding;
 
     return Container(
       alignment: Alignment.center,
@@ -63,7 +67,7 @@ class RectangleAspectRatioWidget extends StatelessWidget {
                   child: AspectRatio(
                     aspectRatio: 3 / 4,
                     child: Image.network(
-                      _imageUrl,
+                      widget._imageUrl,
                       fit: BoxFit.cover,
                     ),
                   ),
