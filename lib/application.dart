@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/common/common.dart' show BuildContextExtension;
-import 'package:portfolio/presenter/presenter.dart' show AppColors, AppRouter, AppTheme;
+import 'package:portfolio/common/common.dart' show AppRouter;
+import 'package:portfolio/ui/ui.dart' show AppColors, AppMeasuries, AppTheme;
 
 class Application extends StatelessWidget {
   const Application({
@@ -12,13 +12,13 @@ class Application extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = AppTheme(appType: context.appType);
+    final theme = AppTheme(colors: AppColors(), measuries: AppMeasuries());
     return MaterialApp.router(
       title: 'Portfolio',
+      theme: theme.light(),
+      darkTheme: theme.dark(),
       debugShowCheckedModeBanner: false,
       routerConfig: _router.routerConfig,
-      theme: theme.light(AppColors.light()),
-      darkTheme: theme.dark(AppColors.dark()),
       scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
     );
   }
