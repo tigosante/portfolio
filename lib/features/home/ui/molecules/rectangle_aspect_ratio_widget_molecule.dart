@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/common/common.dart';
+import 'package:portfolio/domain/domain.dart';
 import 'package:portfolio/ui/ui.dart';
 
 class RectangleAspectRatioWidgetMolecule extends StatefulWidget {
   const RectangleAspectRatioWidgetMolecule({
-    required double padding,
-    required String imageUrl,
+    required ProjectEntity project,
     super.key,
-  })  : _padding = padding,
-        _imageUrl = imageUrl;
+  }) : _project = project;
 
-  final double _padding;
-  final String _imageUrl;
+  final ProjectEntity _project;
 
   @override
   State<RectangleAspectRatioWidgetMolecule> createState() => _RectangleAspectRatioWidgetMoleculeState();
@@ -23,88 +22,130 @@ class _RectangleAspectRatioWidgetMoleculeState extends State<RectangleAspectRati
 
   @override
   Widget build(BuildContext context) {
-    const cardSize = 400.0;
-    const cardExpandedSize = cardSize + 8;
-    final cardBiggerSize = cardSize + widget._padding;
+    const cardWidth = 350.0;
+    final cardColor = context.colorScheme.surface;
+    final detailsColor = context.colorScheme.onSurface;
+    const animateDuration = Duration(milliseconds: 200);
+    final cardShadowColor = context.colorScheme.brightness.isLight ? context.colorScheme.shadow : Colors.white;
 
-    return Container(
-      alignment: Alignment.center,
-      height: cardBiggerSize * 1.32,
-      width: cardBiggerSize + (cardBiggerSize * 0.01),
+    return SizedBox(
+      width: cardWidth,
+      height: cardWidth + 50,
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         onExit: (event) => _state?.call(() => _isHover = false),
         onEnter: (event) => _state?.call(() => _isHover = true),
-        child: Stack(
-          children: [
-            StatefulBuilder(
-              builder: (context, state) {
-                _state = state;
-                return AnimatedContainer(
-                  curve: Curves.easeInOut,
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                  duration: const Duration(milliseconds: 200),
-                  width: _isHover ? cardExpandedSize : cardSize,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(context.measuries.borderRadiusLarge),
-                    boxShadow: [
-                      if (_isHover)
-                        BoxShadow(
-                          blurRadius: 20,
-                          spreadRadius: 0.5,
-                          offset: const Offset(1, 3),
-                          color: Colors.black.withOpacity(0.10),
-                        )
-                      else
-                        BoxShadow(
-                          blurRadius: 10,
-                          spreadRadius: 2,
-                          offset: const Offset(1, 2),
-                          color: Colors.black.withOpacity(0.05),
-                        ),
-                    ],
-                  ),
-                  child: AspectRatio(
-                    aspectRatio: 3 / 4,
-                    child: Image.network(
-                      widget._imageUrl,
-                      fit: BoxFit.cover,
+        child: StatefulBuilder(
+          builder: (context, state) {
+            _state = state;
+            return AnimatedContainer(
+              curve: Curves.easeInOut,
+              duration: animateDuration,
+              clipBehavior: Clip.antiAlias,
+              decoration: BoxDecoration(
+                color: cardColor,
+                borderRadius: BorderRadius.circular(context.measuries.borderRadiusLarge),
+                boxShadow: [
+                  if (_isHover)
+                    BoxShadow(
+                      blurRadius: 20,
+                      spreadRadius: 0.5,
+                      offset: const Offset(1, 3),
+                      color: cardShadowColor.withOpacity(0.1),
+                    )
+                  else
+                    BoxShadow(
+                      blurRadius: 10,
+                      spreadRadius: 2,
+                      offset: const Offset(1, 2),
+                      color: cardShadowColor.withOpacity(0.05),
                     ),
-                  ),
-                );
-              },
-            ),
-            Padding(
-              padding: EdgeInsets.all(context.measuries.paddingExtraLarge),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  TextWidgetAtom(
-                    'Repository Name'.toUpperCase(),
-                    style: context.textTheme.bodyLarge.copyWith(
-                      fontWeight: FontWeight.w500,
-                      color: context.colorScheme.secondary,
-                    ),
-                  ),
-                  SizedBox(height: context.measuries.paddingSmall),
-                  TextWidgetAtom(
-                    'Project purpose, brief description.',
-                    maxLines: 3,
-                    style: context.textTheme.titleLarge.copyWith(color: context.colorScheme.secondary),
-                  ),
-                  SizedBox(height: context.measuries.paddingSmall),
-                  TextWidgetAtom(
-                    'Frameworks and languages ​​used.',
-                    maxLines: 2,
-                    style: context.textTheme.bodyLarge.copyWith(
-                      fontWeight: FontWeight.w500,
-                      color: context.colorScheme.secondary,
-                    ),
-                  ),
                 ],
               ),
-            ),
-          ],
+              child: ColoredBox(
+                color: cardColor,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    AnimatedContainer(
+                      width: double.infinity,
+                      duration: animateDuration,
+                      margin: EdgeInsets.all(_isHover ? context.measuries.paddingSmall : 0),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: _isHover ? context.measuries.paddingSmall : context.measuries.paddingMedium,
+                        vertical: _isHover ? context.measuries.paddingSmall : context.measuries.paddingMedium,
+                      ),
+                      decoration: BoxDecoration(
+                        color: detailsColor.withOpacity(_isHover ? 0.02 : 0),
+                        borderRadius: BorderRadius.all(Radius.circular(context.measuries.borderRadiusLarge)),
+                      ),
+                      child: AnimatedContainer(
+                        duration: animateDuration,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            TextWidgetAtom(
+                              widget._project.name.captalize(),
+                              style: context.textTheme.titleMedium.copyWith(
+                                color: detailsColor,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            TextWidgetAtom(
+                              widget._project.date,
+                              style: context.textTheme.titleMedium.copyWith(
+                                color: detailsColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: context.measuries.paddingMedium),
+                      child: TextWidgetAtom(
+                        widget._project.description,
+                        maxLines: 3,
+                        style: context.textTheme.headlineMedium.copyWith(
+                          color: detailsColor,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    AnimatedContainer(
+                      width: double.infinity,
+                      duration: animateDuration,
+                      height: 90 + (_isHover ? context.measuries.paddingMedium : 0),
+                      decoration: BoxDecoration(
+                        color: detailsColor.withOpacity(_isHover ? 0.02 : 0),
+                        borderRadius: BorderRadius.all(Radius.circular(context.measuries.borderRadiusLarge)),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(height: context.measuries.paddingSmall),
+                          AnimatedPadding(
+                            duration: animateDuration,
+                            padding: EdgeInsets.symmetric(horizontal: context.measuries.paddingMedium),
+                            child: TextWidgetAtom(
+                              '${widget._project.skills.map((skill) => skill.name).reduce((value, next) => '$value, $next')}.',
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: context.textTheme.labelLarge.copyWith(
+                                color: detailsColor,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
         ),
       ),
     );

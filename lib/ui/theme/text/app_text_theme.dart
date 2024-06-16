@@ -11,7 +11,7 @@ class AppTextTheme extends TextTheme {
 
   @override
   TextStyle get displayLarge => TextStyle(
-        fontSize: 48,
+        fontSize: 64,
         color: textColor,
         height: 1.0834933333,
         letterSpacing: -0.048,
@@ -21,7 +21,7 @@ class AppTextTheme extends TextTheme {
 
   @override
   TextStyle get displayMedium => TextStyle(
-        fontSize: 44,
+        fontSize: 48,
         color: textColor,
         height: 1.0834933333,
         letterSpacing: -0.048,
@@ -31,7 +31,7 @@ class AppTextTheme extends TextTheme {
 
   @override
   TextStyle get displaySmall => TextStyle(
-        fontSize: 40,
+        fontSize: 32,
         color: textColor,
         height: 1.0834933333,
         letterSpacing: -0.048,
@@ -41,7 +41,7 @@ class AppTextTheme extends TextTheme {
 
   @override
   TextStyle get headlineMedium => TextStyle(
-        fontSize: 36,
+        fontSize: 24,
         color: textColor,
         fontWeight: FontWeight.bold,
         fontFamily: primaryFontFamily,
@@ -49,7 +49,7 @@ class AppTextTheme extends TextTheme {
 
   @override
   TextStyle get headlineSmall => TextStyle(
-        fontSize: 32,
+        fontSize: 20,
         color: textColor,
         fontWeight: FontWeight.bold,
         fontFamily: primaryFontFamily,
@@ -57,7 +57,7 @@ class AppTextTheme extends TextTheme {
 
   @override
   TextStyle get titleLarge => TextStyle(
-        fontSize: 28,
+        fontSize: 18,
         color: textColor,
         fontWeight: FontWeight.bold,
         fontFamily: primaryFontFamily,
@@ -65,15 +65,16 @@ class AppTextTheme extends TextTheme {
 
   @override
   TextStyle get titleMedium => TextStyle(
-        fontSize: 22,
+        fontSize: 16,
         color: textColor,
+        height: 1.0909090909,
         fontWeight: FontWeight.normal,
         fontFamily: primaryFontFamily,
       );
 
   @override
   TextStyle get titleSmall => TextStyle(
-        fontSize: 18,
+        fontSize: 14,
         color: textColor,
         fontWeight: FontWeight.normal,
         fontFamily: primaryFontFamily,
@@ -81,7 +82,7 @@ class AppTextTheme extends TextTheme {
 
   @override
   TextStyle get bodyLarge => TextStyle(
-        fontSize: 14,
+        fontSize: 18,
         color: textColor,
         fontWeight: FontWeight.normal,
         fontFamily: primaryFontFamily,
@@ -89,15 +90,16 @@ class AppTextTheme extends TextTheme {
 
   @override
   TextStyle get bodyMedium => TextStyle(
-        fontSize: 12,
+        fontSize: 16,
         color: textColor,
+        wordSpacing: 3,
         fontWeight: FontWeight.normal,
         fontFamily: primaryFontFamily,
       );
 
   @override
   TextStyle get bodySmall => TextStyle(
-        fontSize: 10,
+        fontSize: 14,
         color: textColor,
         fontWeight: FontWeight.normal,
         fontFamily: primaryFontFamily,
@@ -105,7 +107,7 @@ class AppTextTheme extends TextTheme {
 
   @override
   TextStyle get labelLarge => TextStyle(
-        fontSize: 14,
+        fontSize: 12,
         color: textColor,
         fontWeight: FontWeight.bold,
         fontFamily: primaryFontFamily,

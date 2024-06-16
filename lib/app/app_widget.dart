@@ -23,7 +23,8 @@ class _AppWidgetState extends State<AppWidget> {
     return MaterialApp.router(
       title: 'Portfolio',
       theme: theme.light(),
-      darkTheme: theme.dark(),
+      // TODO: remover
+      darkTheme: theme.light(),
       debugShowCheckedModeBanner: false,
       routerDelegate: widget._routerDelegate,
       routeInformationParser: widget._routeInformationParser,
