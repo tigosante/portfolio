@@ -9,12 +9,7 @@ class SkillModel extends SkillEntity {
     required super.color,
     required super.imageUrl,
     required super.startWork,
-    bool? showLogo,
-    bool? showTitle,
-  }) : super(
-          showLogo: showLogo ?? false,
-          showTitle: showTitle ?? false,
-        );
+  }) : super();
 
   @override
   int get hashCode => name.hashCode;
@@ -28,9 +23,7 @@ class SkillModel extends SkillEntity {
         other.type == type &&
         other.color == color &&
         other.imageUrl == imageUrl &&
-        other.startWork == startWork &&
-        other.showLogo == showLogo &&
-        other.showTitle == showTitle;
+        other.startWork == startWork;
   }
 
   factory SkillModel.fromJson(Map<String, dynamic> json) {
@@ -40,8 +33,6 @@ class SkillModel extends SkillEntity {
       color: json['color'] as String? ?? '',
       imageUrl: json['logo'] as String? ?? '',
       startWork: json['start_work'] as String? ?? '',
-      showTitle: bool.tryParse(json['show_title']?.toString().trim() ?? '') ?? true,
-      showLogo: bool.tryParse(json['show_logo']?.toString().trim() ?? '') ?? true,
     );
   }
 }

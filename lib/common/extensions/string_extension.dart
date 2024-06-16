@@ -25,4 +25,6 @@ extension StringExtension on String {
     }
     launchUrl(uri, mode: LaunchMode.externalApplication);
   }
+
+  String translate([List<String> binds = const []]) => this;
 }

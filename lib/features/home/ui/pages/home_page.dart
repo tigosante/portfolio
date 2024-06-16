@@ -16,38 +16,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // Widget get _appBar => AppBarWidget(
-  //       child: Row(
-  //         mainAxisAlignment: MainAxisAlignment.center,
-  //         children: List.generate(
-  //           3,
-  //           (index) => Padding(
-  //             padding: EdgeInsets.symmetric(horizontal: context.measuries.paddingSmall),
-  //             child: TextWidget(
-  //               'Option ${index + 1}',
-  //               style: context.textTheme.bodyMedium.copyWith(color: context.colorScheme.primary),
-  //             ),
-  //           ),
-  //         ),
-  //       ),
-  //     );
-
   List<Widget> get _children => [
-        // TODO: corrigir
-        // _appBar,
-        // ApresentationFeatureWidget(store: widget._skillStore),
+        ApresentationWidgetTemplate(store: widget._skillStore),
         const ProjectsWidgetTemplate(),
       ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.separated(
+      body: ListView.builder(
         shrinkWrap: true,
         itemCount: _children.length,
         physics: const ClampingScrollPhysics(),
-        itemBuilder: (_, index) => _children[index],
-        separatorBuilder: (_, index) => SizedBox(height: index == 0 ? 0 : context.measuries.paddingExtraLarge),
+        itemBuilder: (_, index) => Padding(
+          padding: EdgeInsets.only(bottom: context.measuries.paddingExtraLarge),
+          child: _children[index],
+        ),
       ),
     );
   }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/common/common.dart';
 import 'package:portfolio/ui/ui.dart';
 
-class TextWidgetAtom extends StatelessWidget {
+class TextWidgetAtom extends StatefulWidget {
   const TextWidgetAtom(
     String data, {
     super.key,
@@ -24,21 +24,26 @@ class TextWidgetAtom extends StatelessWidget {
   final TextOverflow? _overflow;
 
   @override
+  State<TextWidgetAtom> createState() => _TextWidgetAtomState();
+}
+
+class _TextWidgetAtomState extends State<TextWidgetAtom> {
+  @override
   Widget build(BuildContext context) {
     final text = Text(
-      _data,
+      widget._data,
       softWrap: true,
-      maxLines: _maxLines,
-      overflow: _overflow,
-      textAlign: _textAlign,
-      style: _style ?? context.textTheme.bodyMedium,
+      maxLines: widget._maxLines,
+      overflow: widget._overflow,
+      textAlign: widget._textAlign,
+      style: widget._style ?? context.textTheme.bodyMedium,
     );
 
-    if (_data.isURL()) {
+    if (widget._data.isURL()) {
       return MouseRegion(
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
-          onTap: _data.launchLink,
+          onTap: widget._data.launchLink,
           child: text,
         ),
       );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart' show BuildContext, ColorScheme, MediaQuery, Size, Theme;
 import 'package:portfolio/common/common.dart' show Environment, EnvironmentImpl;
-import 'package:portfolio/ui/ui.dart' show AppMeasuriesExtension, AppTextThemeExtension;
+import 'package:portfolio/ui/ui.dart' show AppMeasuriesThemeExtension, AppTextThemeExtension;
 
 extension BuildContextExtension on BuildContext {
   Size get appSize => MediaQuery.sizeOf(this);
@@ -11,8 +11,8 @@ extension BuildContextExtension on BuildContext {
     return Theme.of(this).colorScheme;
   }
 
-  AppMeasuriesExtension get measuries {
-    return _getExtension();
+  AppMeasuriesThemeExtension get measuries {
+    return _getExtension()..setContext(this);
   }
 
   AppTextThemeExtension get textTheme {

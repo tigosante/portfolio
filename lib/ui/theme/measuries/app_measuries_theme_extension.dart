@@ -1,31 +1,16 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart' show ThemeExtension;
+import 'package:flutter/material.dart' show BuildContext, ThemeExtension;
 import 'package:portfolio/ui/theme/measuries/app_measuries.dart';
 
-class AppMeasuriesExtension extends ThemeExtension<AppMeasuriesExtension> implements AppMeasuries {
-  AppMeasuriesExtension({
+class AppMeasuriesThemeExtension extends ThemeExtension<AppMeasuriesThemeExtension> implements AppMeasuries {
+  AppMeasuriesThemeExtension({
     required AppMeasuries measuries,
   }) : _measuries = measuries;
 
   final AppMeasuries _measuries;
 
   @override
-  double get noneValue => _measuries.noneValue;
-
-  @override
-  double get smallValue => _measuries.smallValue;
-
-  @override
-  double get mediumValue => _measuries.mediumValue;
-
-  @override
-  double get largeValue => _measuries.largeValue;
-
-  @override
-  double get extraLargeValue => _measuries.extraLargeValue;
-
-  @override
-  double get borderRadiusNone => _measuries.borderRadiusNone;
+  double get none => _measuries.none;
 
   @override
   double get borderRadiusSmall => _measuries.borderRadiusSmall;
@@ -35,9 +20,6 @@ class AppMeasuriesExtension extends ThemeExtension<AppMeasuriesExtension> implem
 
   @override
   double get borderRadiusLarge => _measuries.borderRadiusLarge;
-
-  @override
-  double get paddingNone => _measuries.paddingNone;
 
   @override
   double get paddingSmall => _measuries.paddingSmall.factor;
@@ -52,13 +34,24 @@ class AppMeasuriesExtension extends ThemeExtension<AppMeasuriesExtension> implem
   double get paddingExtraLarge => _measuries.paddingExtraLarge.factor;
 
   @override
-  ThemeExtension<AppMeasuriesExtension> copyWith() {
+  double get maxWidth => _measuries.maxWidth;
+
+  @override
+  double get screenWidth => _measuries.screenWidth;
+
+  @override
+  void setContext(BuildContext context) {
+    _measuries.setContext(context);
+  }
+
+  @override
+  ThemeExtension<AppMeasuriesThemeExtension> copyWith() {
     return this;
   }
 
   @override
-  ThemeExtension<AppMeasuriesExtension> lerp(
-    covariant ThemeExtension<AppMeasuriesExtension>? other,
+  ThemeExtension<AppMeasuriesThemeExtension> lerp(
+    covariant ThemeExtension<AppMeasuriesThemeExtension>? other,
     double t,
   ) {
     return this;

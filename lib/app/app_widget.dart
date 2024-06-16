@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/ui/ui.dart' show AppColors, AppMeasuries, AppTheme;
+import 'package:portfolio/ui/theme/colors/app_colors_impl.dart';
+import 'package:portfolio/ui/theme/measuries/app_measuries_impl.dart';
+import 'package:portfolio/ui/ui.dart' show AppTheme;
 
 class AppWidget extends StatefulWidget {
   const AppWidget({
@@ -19,12 +21,12 @@ class AppWidget extends StatefulWidget {
 class _AppWidgetState extends State<AppWidget> {
   @override
   Widget build(BuildContext context) {
-    final theme = AppTheme(colors: AppColors(), measuries: AppMeasuries());
+    final theme = AppTheme(colors: AppColorsImpl(), measuries: AppMeasuriesImpl());
     return MaterialApp.router(
       title: 'Portfolio',
       theme: theme.light(),
       // TODO: remover
-      darkTheme: theme.light(),
+      darkTheme: theme.dark(),
       debugShowCheckedModeBanner: false,
       routerDelegate: widget._routerDelegate,
       routeInformationParser: widget._routeInformationParser,

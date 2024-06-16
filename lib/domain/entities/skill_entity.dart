@@ -8,8 +8,6 @@ class SkillEntity {
     required this.color,
     required this.imageUrl,
     required this.startWork,
-    this.showLogo = true,
-    this.showTitle = true,
   });
 
   final String name;
@@ -17,6 +15,6 @@ class SkillEntity {
   final String color;
   final String imageUrl;
   final String startWork;
-  final bool showLogo;
-  final bool showTitle;
+
+  String get searchtext => '$name $type $startWork';
 }

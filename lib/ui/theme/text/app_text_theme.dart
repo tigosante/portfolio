@@ -84,6 +84,8 @@ class AppTextTheme extends TextTheme {
   TextStyle get bodyLarge => TextStyle(
         fontSize: 18,
         color: textColor,
+        wordSpacing: 0.5,
+        letterSpacing: 0.2,
         fontWeight: FontWeight.normal,
         fontFamily: primaryFontFamily,
       );

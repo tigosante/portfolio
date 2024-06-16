@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/common/common.dart';
 import 'package:portfolio/domain/domain.dart';
 import 'package:portfolio/features/home/ui/ui.dart';
 import 'package:portfolio/ui/ui.dart';
@@ -25,8 +26,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
         const SkillEntity(
           name: 'Kotlin',
@@ -34,8 +33,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
         const SkillEntity(
           name: 'Flutter',
@@ -43,8 +40,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
         const SkillEntity(
           name: 'Dart',
@@ -52,8 +47,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
         const SkillEntity(
           name: 'TypeScript',
@@ -61,8 +54,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
         const SkillEntity(
           name: 'NestJS',
@@ -70,8 +61,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
         const SkillEntity(
           name: 'PrismaJS',
@@ -79,8 +68,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
         const SkillEntity(
           name: 'TypeORM',
@@ -88,8 +75,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
         const SkillEntity(
           name: 'PostgreSQL',
@@ -97,8 +82,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
         const SkillEntity(
           name: 'Algolia',
@@ -106,8 +89,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
         const SkillEntity(
           name: 'Firebase',
@@ -115,8 +96,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
       ],
     ),
@@ -133,8 +112,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
         const SkillEntity(
           name: 'Dart',
@@ -142,8 +119,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
       ],
     ),
@@ -160,8 +135,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
         const SkillEntity(
           name: 'Dart',
@@ -169,8 +142,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
       ],
     ),
@@ -187,8 +158,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
         const SkillEntity(
           name: 'Dart',
@@ -196,8 +165,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
       ],
     ),
@@ -214,8 +181,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
         const SkillEntity(
           name: 'Dart',
@@ -223,8 +188,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
       ],
     ),
@@ -241,8 +204,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
         const SkillEntity(
           name: 'Dart',
@@ -250,8 +211,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
       ],
     ),
@@ -268,8 +227,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
         const SkillEntity(
           name: 'Dart',
@@ -277,8 +234,6 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
           imageUrl: '',
           startWork: '2020',
           type: '',
-          showLogo: false,
-          showTitle: false,
         ),
       ],
     ),
@@ -286,25 +241,29 @@ class _ProjectsWidgetTemplateState extends State<ProjectsWidgetTemplate> {
 
   @override
   Widget build(BuildContext context) {
+    final measuries = context.measuries;
+    final paddingMedium = measuries.paddingMedium;
+    final horizontalScreenPadding = measuries.horizontalScreenPadding;
     final projects = (_projectList..sort((a, b) => b.date.compareTo(a.date)));
+
     return Column(
-      mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AppBar(
-          toolbarHeight: kToolbarHeight + 30,
-          title: TextWidgetAtom('Hello!', style: context.textTheme.headlineMedium),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: horizontalScreenPadding + measuries.paddingExtraLarge)
+              .copyWith(top: paddingMedium),
+          child: TextWidgetAtom('Projects'.translate(), style: context.textTheme.headlineMedium),
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           physics: const BouncingScrollPhysics(),
-          padding: EdgeInsets.all(context.measuries.paddingMedium),
+          padding: EdgeInsets.all(paddingMedium).add(EdgeInsets.symmetric(horizontal: horizontalScreenPadding)),
           child: Row(
             children: [
               for (var index = 0; index < projects.length; index++)
                 Padding(
-                  padding: EdgeInsets.only(right: index == (projects.length - 1) ? 0 : context.measuries.paddingMedium),
-                  child: RectangleAspectRatioWidgetMolecule(
+                  padding: EdgeInsets.only(right: index == (projects.length - 1) ? 0 : paddingMedium),
+                  child: RectangleAspectRatioWidgetOrganism(
                     project: projects[index],
                   ),
                 ),

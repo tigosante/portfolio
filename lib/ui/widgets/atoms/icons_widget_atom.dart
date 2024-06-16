@@ -5,6 +5,7 @@ enum IconType {
   link,
   profile,
   arrowRight,
+  search,
   noImage;
 
   IconData? get getIcon {
@@ -12,6 +13,7 @@ enum IconType {
       IconType.link => EneftyIcons.link_2_bold,
       IconType.profile => EneftyIcons.profile_outline,
       IconType.arrowRight => EneftyIcons.arrow_right_2_outline,
+      IconType.search => EneftyIcons.search_normal_outline,
       IconType.noImage => null,
     };
   }
@@ -33,6 +35,12 @@ class IconsWidgetAtom extends StatelessWidget {
 
   factory IconsWidgetAtom.noImage({Color? color, double? size}) => IconsWidgetAtom(
         iconType: IconType.noImage,
+        size: size,
+        color: color,
+      );
+
+  factory IconsWidgetAtom.search({Color? color, double? size}) => IconsWidgetAtom(
+        iconType: IconType.search,
         size: size,
         color: color,
       );

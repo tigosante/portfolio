@@ -93,7 +93,7 @@ class AppTheme {
       ),
       extensions: [
         AppTextThemeExtension(textTheme: textTheme),
-        AppMeasuriesExtension(measuries: measuries),
+        AppMeasuriesThemeExtension(measuries: measuries),
       ],
     );
   }

@@ -23,7 +23,7 @@ class SkillRepositoryImpl implements SkillRepository {
       data.forEach(
         (key, value) {
           final list = (value as List).cast<Map<String, dynamic>>();
-          skills.addAll(list.map((json) => SkillModel.fromJson(json..['type'] = key)));
+          skills.addAll(list.map(SkillModel.fromJson));
         },
       );
       return Right(skills);
