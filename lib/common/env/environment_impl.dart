@@ -22,6 +22,9 @@ class EnvironmentImpl implements Environment {
   String get skillsFileName => const String.fromEnvironment('SKILLS_FILE_NAME');
 
   @override
+  String get projectsFileName => const String.fromEnvironment('PROJECTS_FILE_NAME');
+
+  @override
   String get githubBaseUrl => const String.fromEnvironment('GITHUB_BASE_URL');
 
   @override

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/domain/domain.dart' show SkillEntity;
+import 'package:portfolio/domain/domain.dart' show SkillModel;
 import 'package:portfolio/features/home/stores/stores.dart';
 import 'package:portfolio/features/home/ui/ui.dart';
 import 'package:portfolio/ui/ui.dart';
@@ -17,7 +17,7 @@ class ApresentationWidgetTemplate extends StatefulWidget {
 }
 
 class _ApresentationWidgetTemplateState extends State<ApresentationWidgetTemplate> {
-  final _skillList = <SkillEntity>[];
+  final _skillList = <SkillModel>[];
 
   @override
   void initState() {
@@ -57,7 +57,7 @@ class _ApresentationWidgetTemplateState extends State<ApresentationWidgetTemplat
           if (_skillList.isNotEmpty)
             SkillsListWidgetOrganism(data: _skillList)
           else
-            StreamBuilder<ApresentationStates>(
+            StreamBuilder<ApresentationState>(
               stream: widget._store.stream,
               builder: (context, snapshot) => switch (snapshot.data) {
                 ApresentationErrorState(message: final code) => TextWidgetAtom(code),

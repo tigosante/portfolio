@@ -7,7 +7,7 @@ class ProjectTitleMolecule extends StatefulWidget {
   const ProjectTitleMolecule({
     required bool isHover,
     required Color detailsColor,
-    required ProjectEntity project,
+    required ProjectModel project,
     required Duration animateDuration,
     super.key,
   })  : _isHover = isHover,
@@ -17,7 +17,7 @@ class ProjectTitleMolecule extends StatefulWidget {
 
   final bool _isHover;
   final Color _detailsColor;
-  final ProjectEntity _project;
+  final ProjectModel _project;
   final Duration _animateDuration;
 
   @override
@@ -52,10 +52,8 @@ class _ProjectTitleMoleculeState extends State<ProjectTitleMolecule> {
               ),
             ),
             TextWidgetAtom(
-              widget._project.date,
-              style: context.textTheme.titleMedium.copyWith(
-                color: widget._detailsColor,
-              ),
+              '${widget._project.startWork} - ${widget._project.endWork}',
+              style: context.textTheme.titleMedium.copyWith(color: widget._detailsColor),
             ),
           ],
         ),

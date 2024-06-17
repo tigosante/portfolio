@@ -4,9 +4,9 @@ import 'package:portfolio/domain/domain.dart';
 import 'package:portfolio/ui/ui.dart';
 
 class SkillsListWidgetOrganism extends StatefulWidget {
-  const SkillsListWidgetOrganism({required List<SkillEntity> data, super.key}) : _data = data;
+  const SkillsListWidgetOrganism({required List<SkillModel> data, super.key}) : _data = data;
 
-  final List<SkillEntity> _data;
+  final List<SkillModel> _data;
 
   @override
   State<SkillsListWidgetOrganism> createState() => SkillsListWidgetOrganismState();
@@ -14,11 +14,11 @@ class SkillsListWidgetOrganism extends StatefulWidget {
 
 class SkillsListWidgetOrganismState extends State<SkillsListWidgetOrganism> {
   late final TextEditingController _controller;
-  final List<SkillEntity> _searchedData = [];
+  final List<SkillModel> _searchedData = [];
 
   bool _isSearching = false;
 
-  List<SkillEntity> get _skills {
+  List<SkillModel> get _skills {
     if (_isSearching) {
       return _searchedData;
     }

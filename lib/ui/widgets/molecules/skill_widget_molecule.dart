@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/common/common.dart' show StringExtension;
-import 'package:portfolio/domain/domain.dart' show SkillEntity;
+import 'package:portfolio/domain/domain.dart' show SkillModel;
 import 'package:portfolio/ui/ui.dart';
 
 // ignore: must_be_immutable
 class SkillWidgetMolecule extends StatefulWidget {
   const SkillWidgetMolecule(
-    SkillEntity data, {
+    SkillModel data, {
     super.key,
   }) : _data = data;
 
-  final SkillEntity _data;
+  final SkillModel _data;
 
   @override
   State<SkillWidgetMolecule> createState() => _SkillWidgetMoleculeState();

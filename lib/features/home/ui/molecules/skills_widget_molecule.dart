@@ -6,7 +6,7 @@ class SkillsWidgetMolecule extends StatefulWidget {
   const SkillsWidgetMolecule({
     required bool isHover,
     required Color detailsColor,
-    required List<SkillEntity> skills,
+    required List<SkillModel> skills,
     required Duration animateDuration,
     super.key,
   })  : _isHover = isHover,
@@ -16,7 +16,7 @@ class SkillsWidgetMolecule extends StatefulWidget {
 
   final bool _isHover;
   final Color _detailsColor;
-  final List<SkillEntity> _skills;
+  final List<SkillModel> _skills;
   final Duration _animateDuration;
 
   @override

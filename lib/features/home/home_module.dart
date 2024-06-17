@@ -1,5 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:portfolio/common/common.dart';
+import 'package:portfolio/features/home/stores/project/project_store_impl.dart';
 import 'package:portfolio/features/home/stores/stores.dart';
 import 'package:portfolio/features/home/ui/pages/home_page.dart';
 
@@ -8,7 +9,8 @@ class HomeModule extends Module {
 
   @override
   List<Bind<Object>> get binds => [
-        Bind((get) => ApresentationStoreImpl(env: get(), usecase: get())),
+        Bind((get) => ProjectStoreImpl(usecase: get())),
+        Bind((get) => ApresentationStoreImpl(usecase: get())),
       ];
 
   @override

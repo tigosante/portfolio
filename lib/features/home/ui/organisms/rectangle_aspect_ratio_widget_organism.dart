@@ -5,11 +5,11 @@ import 'package:portfolio/ui/ui.dart';
 
 class RectangleAspectRatioWidgetOrganism extends StatefulWidget {
   const RectangleAspectRatioWidgetOrganism({
-    required ProjectEntity project,
+    required ProjectModel project,
     super.key,
   }) : _project = project;
 
-  final ProjectEntity _project;
+  final ProjectModel _project;
 
   @override
   State<RectangleAspectRatioWidgetOrganism> createState() => _RectangleAspectRatioWidgetMoleculeState();
